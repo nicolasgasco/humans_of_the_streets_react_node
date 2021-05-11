@@ -1,0 +1,46 @@
+.main-header {
+  margin: 0;
+  padding: 1rem;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  align-content: center;
+
+  text-align: center;
+
+  background-color: white;
+  background-image: url("./img/pexels-harrison-haines-3536259.jpg");
+  background-position: bottom;
+  background-size: cover;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+.main-logo {
+  font-family: "Playfair Display SC", serif;
+  font-weight: 900;
+  font-size: 6.5vw;
+}
+
+@media only screen and (min-width: 600px) {
+  .main-header {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: baseline;
+
+    height: 96vh;
+
+    margin-bottom: 2vh;
+  }
+  
+}
