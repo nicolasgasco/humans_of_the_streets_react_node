@@ -1,0 +1,13 @@
+footer {
+	width: 100%;
+	min-height: 5vh;
+	margin-top: auto;
+	padding: 1vh;
+
+	background-color: #606664;
+}
+
+.made-by {
+	color: white;
+	float: right;
+}
