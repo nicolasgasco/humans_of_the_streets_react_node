@@ -1,8 +1,15 @@
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Footer from "./components/Footer/Footer";
+import MainHeader from "./components/Header/MainHeader";
+
 function App() {
   return (
-    <div>
-      <h1>Let's start</h1>
-    </div>
+    <BrowserRouter>
+      <Route exact path="/">
+        <MainHeader />
+      </Route>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
