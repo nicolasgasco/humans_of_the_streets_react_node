@@ -13,7 +13,7 @@ const BrowseContent = () => {
       url = '/api/humans/';
     } else if (searchLocale.city == null || searchLocale.city == "All") {
       // Api is unfortunately a bit quirky, Null must be added here
-      url = `/api/humans/${searchLocale.country}/Null`;
+      url = `/api/humans/${searchLocale.country}/all`;
     } else {
       url = `/api/humans/${searchLocale.country}/${searchLocale.city}`;
     }

@@ -28,7 +28,7 @@ const CountrySelector = (props) => {
           props.handleCurrentCountry(e.target.value);
         }}
       >
-        <option value="All">All countries</option>
+        <option value="all">All countries</option>
         {showCountries}
       </select>
     </div>

@@ -51,7 +51,7 @@ router.get("/:country", (req, res) => {
   let searchFilterObject;
 
   // When "All cities" is selected, search must be done per country and not city
-  if (country !== "All") {
+  if (country !== "all") {
     searchFilterObject = { "currently_in.country": country };
   }
 
@@ -104,7 +104,7 @@ router.get("/:country/:city", (req, res) => {
   let searchFilterObject;
 
   // When "All cities" is selected, search must be done per country and not city
-  if (city === "Null") {
+  if (city === "all") {
     searchFilterObject = { "currently_in.country": country };
   } else {
     searchFilterObject = { "currently_in.city": city };

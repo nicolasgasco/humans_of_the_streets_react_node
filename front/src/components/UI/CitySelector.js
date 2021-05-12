@@ -28,7 +28,7 @@ const CitySelector = (props) => {
           props.handleCurrentCity(e.target.value);
         }}
       >
-        <option value="All" selected="selected">All cities</option>
+        <option value="all" selected="selected">All cities</option>
         {showCities}
       </select>
     </div>

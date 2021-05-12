@@ -12,7 +12,7 @@ const CountryCitySelector = (props) => {
   }, [currentCountry, currentCity]);
 
   const handleCurrentCountry = (country) => {
-    if (country === "All") {
+    if (country === "all") {
       setCurrentCountry(null);
       setCurrentCity(null);
     } else {
@@ -28,7 +28,7 @@ const CountryCitySelector = (props) => {
   return (
     <div class="country-city-selector">
       <CountrySelector handleCurrentCountry={handleCurrentCountry} />
-      {currentCountry !== "All" ? (
+      {currentCountry !== "all" ? (
         <CitySelector
           handleCurrentCity={handleCurrentCity}
           country={currentCountry}
