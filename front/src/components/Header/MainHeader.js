@@ -2,16 +2,16 @@ import MainLogo from "./MainLogo";
 import MainNav from "./MainNav";
 import "./MainHeader.css";
 import { useState, useEffect } from "react";
-import StandardButton from "../Buttons/StandardButton";
+import StandardButton from "../UI/StandardButton";
 import AnimatedLogo from "./AnimatedLogo";
 
-function MainHeader() {
+const MainHeader = () => {
   // Two different headers for mobile and desktop/tablet version
   if (window.innerWidth <= 600) {
     return (
       <>
         <header className="main-header">
-          <div className="main-header">
+          <div className="picture-container">
             <AnimatedLogo />
           </div>
           <MainNav />
@@ -22,8 +22,8 @@ function MainHeader() {
   } else {
     return (
       <>
-        <header>
-          <div className="main-header">
+        <header className="main-header">
+          <div className="picture-container">
             <AnimatedLogo />
           </div>
           <MainNav />
@@ -32,6 +32,6 @@ function MainHeader() {
       </>
     );
   }
-}
+};
 
 export default MainHeader;
