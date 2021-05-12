@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import StandardButton from "../Buttons/StandardButton";
+import { Link } from 'react-router-dom';
+import './MainNav.css';
 
-function MainNav() {
+const MainNav = () => {
     return (
         <nav className="main-nav">
-            <div><Link>Browse stories</Link></div>
-            <StandardButton text="Login" />
+            <Link to="/browse/">Browse</Link>
+            <Link>Join</Link>
         </nav>
     );
   }
