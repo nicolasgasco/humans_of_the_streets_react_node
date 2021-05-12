@@ -1,21 +1,28 @@
 footer {
-	width: 100%;
-	min-height: 5vh;
-	margin-top: auto;
-	padding: 1vh;
-	background-color: #606664;
+  width: 100%;
+  min-height: 3vh;
+  margin-top: auto;
+  padding: 1vh;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #606664;
 }
 
-footer, footer a {
-	color: white;
-	text-decoration: none;
+footer small {
+	max-width: 40%;
+	font-size: xx-small;
+}
+
+footer,
+footer a {
+  color: white;
+  text-decoration: none;
 }
 
 footer a:hover {
-	text-decoration: underline;
-}
-
-.made-by {
-
-	float: right;
+  text-decoration: underline;
 }
