@@ -1,33 +1,4 @@
-/* Animated subtitle */
-.wrapper {
-    /*This part is important for centering*/
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .typing-demo {
-    width: 22ch;
-    animation: typing 2.5s steps(22), blink 0.5s step-end infinite alternate;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid;
-    font-family: monospace;
-    font-size: 2em;
-  }
-  
-  @keyframes typing {
-    from {
-      width: 0;
-    }
-  }
-  
-  @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
-  }
-  
+
   /* Animated title */
   @import url('https://fonts.googleapis.com/css?family=Roboto:700');
   @keyframes showTopText {
@@ -41,10 +12,12 @@
   }
   
   .animated-title {
-    color: #222;
+    color: rgb(29, 29, 29);
     font-family: Roboto, Arial, sans-serif;
+    letter-spacing: 2px;
     height: 90vmin;
     left: 50%;
+    text-align: left;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -76,7 +49,7 @@
     transform: translate(0, 100%);
   }
   .animated-title > div.text-top div span:first-child {
-    color: #767676;
+    color: #ffffff;
   }
   .animated-title > div.text-bottom {
     bottom: 0;
