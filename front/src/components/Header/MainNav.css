@@ -3,10 +3,40 @@
   padding: 1rem;
 
   outline: 1px solid red;
+
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: baseline;
+
+  font-weight: bold;
+  font-size: large;
+
+  animation: 0.8s fadeIn;
+  animation-fill-mode: forwards;
+  animation-delay: 2.5s;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  50% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .main-nav a {
