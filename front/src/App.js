@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 import MainHeader from "./components/Header/MainHeader";
