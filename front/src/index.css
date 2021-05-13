@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -22,6 +22,8 @@ body a {
   
   display: flex;
   flex-direction: column;
+
+  background-color: #f3f7f5;
 }
 
 @media only screen and (min-width: 600px) {
