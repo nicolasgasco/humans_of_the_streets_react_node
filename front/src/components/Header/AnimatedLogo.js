@@ -1,16 +1,17 @@
 import "./AnimatedLogo.css";
 
+// This animated logo requires this structure to work
 const AnimatedLogo = () => {
   return (
     <div className="animated-title">
       <div className="text-top">
         <div>
           <span>Humans</span>
-          <span>of the Streets</span>
+          <span><span style={{"display": "inline", "font-size": "1.8rem", "color" : "black"}}>of the</span> Streets</span>
         </div>
       </div>
       <div className="text-bottom">
-        <div style={{ "font-size": "1.8rem" }}>Read their stories...</div>
+        <div ><p style={{ "fontSize": "1.1rem", "margin": "0" }}>Read their stories...</p></div>
       </div>
     </div>
   );
