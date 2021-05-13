@@ -1,61 +1,73 @@
 .signup-container {
-    width: 100%;
-    min-height: 30vh;
-    padding: 2rem 3rem;
-  
-    background-color: #7f8885;
-  }
-  
-  .signup-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: baseline;
-    align-content: center;
-  }
-  
-  .signup-form input {
-    outline: 0;
-    border: 0;
-    border-bottom: 3px black solid;
-  
-    color: black;
-    font-weight: bold;
-    letter-spacing: 3px;
-  
-    background-color: #7f8885;
-  }
-  
-  .signup-form > div {
-    margin: 1rem;
-  
-    color: white;
-    font-weight: bold;
-  }
-  
-  .login-button {
-    background-color: transparent;
-    border: 0;
-  }
-  
+  width: 100%;
+  min-height: 30vh;
+  padding: 2rem 3rem;
+
+  background-color: #7f8885;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  align-content: center;
+}
+
+.signup-form input {
+  border: 0;
+
+  width: 100%;
+
+  border-bottom: 3px black solid;
+  color: black;
+
+  font-weight: bold;
+  letter-spacing: 3px;
+
+  background-color: #7f8885;
+}
+
+.signup-form > div {
+  margin: 1rem;
+
+  width: 80%;
+
+  color: white;
+  font-weight: bold;
+}
+
+.signup-container p {
+  text-align: center;
+}
+
+::placeholder {
+  color: rgb(88, 88, 88);
+  opacity: 1;
+}
+
+.signup-link {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.invalid {
+  border-bottom: 3px red solid !important;
+  background-color: thistle !important;
+}
+
+.red-text {
+  color: red;
+}
+
+.checkbox {
+  width: auto !important;
+  margin-right: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
   .signup-container p {
-    text-align: center;
+    font-size: larger;
   }
-  
-  ::placeholder {
-    color: rgb(88, 88, 88);
-    opacity: 1;
-  }
-  
-  .signup-link {
-    text-decoration: underline;
-    font-weight: bold;
-  }
-  
-  
-  @media only screen and (min-width: 600px) {
-    .signup-container p {
-      font-size: larger;
-    }
-    
-  }
+}

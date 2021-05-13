@@ -1,8 +1,6 @@
 import "./SignupForm.css";
-import StandardButton from "../UI/StandardButton";
-import WhiteBtnWrapper from "../UI/WhiteBtnWrapper";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import WhiteButton from "../UI/WhiteButton";
 
 const SignupForm = (props) => {
   const [user, setUser] = useState({
@@ -15,6 +13,8 @@ const SignupForm = (props) => {
       checked: false,
     },
   });
+  const [formValid, setFormValid] = useState(true);
+  const [userRegistered, setUserRegistered] = useState(false);
 
   const resetSignupForm = () => {
     setUser({
@@ -34,7 +34,7 @@ const SignupForm = (props) => {
     e.target.checkValidity();
 
     if (user.user.password !== user.user["confirm-password"]) {
-      window.alert("The two passwords don't match!");
+      setFormValid(false);
       resetSignupForm();
     } else {
       fetch("/api/signin", {
@@ -55,8 +55,7 @@ const SignupForm = (props) => {
             window.alert("Welcome to Humans of the Streets!");
             resetSignupForm();
           } else {
-            window.alert("User is already registered!");
-            resetSignupForm();
+            setUserRegistered(true);
           }
         })
         .catch(function (error) {
@@ -66,6 +65,9 @@ const SignupForm = (props) => {
   };
 
   const handleUser = (value, field) => {
+    setFormValid(true);
+    setUserRegistered(false);
+
     setUser((prevState) => {
       let user = Object.assign({}, prevState.user);
       user[field] = value;
@@ -73,91 +75,119 @@ const SignupForm = (props) => {
     });
   };
 
+  const showPasswordsNoMatch = (
+    <div>
+      <p class="red-text">The two passwords don't match!</p>
+    </div>
+  );
+
+  const showUserAlreadyRegistered = (
+    <div>
+      <p class="red-text">The user is already registered!</p>
+    </div>
+  );
+
   return (
     <div className="signup-container">
       <form className="signup-form" onSubmit={submitForm}>
-        <div>
-          <label htmlFor="username">Name: </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            required
-            value={user.user.name}
-            onChange={(e) => {
-              handleUser(e.target.value, "name");
-            }}
-          />
+        <div className="form-div">
+          <div>
+            <label htmlFor="name">Name: </label>
+            <br />
+            <input
+              type="text"
+              name="name"
+              id="name"
+              required
+              value={user.user.name}
+              onChange={(e) => {
+                handleUser(e.target.value, "name");
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor="surname">Surname: </label>
+            <br />
+            <input
+              type="text"
+              name="surname"
+              id="surname"
+              required
+              value={user.user.surname}
+              onChange={(e) => {
+                handleUser(e.target.value, "surname");
+              }}
+            />
+          </div>
         </div>
         <div>
-          <label htmlFor="username">Surname: </label>
-          <input
-            type="text"
-            name="surname"
-            id="surname"
-            required
-            value={user.user.surname}
-            onChange={(e) => {
-              handleUser(e.target.value, "surname");
-            }}
-          />
+          <div>
+            <label htmlFor="email">Email: </label>
+            <br />
+            <input
+              type="email"
+              name="email"
+              id="email"
+              required
+              value={user.user.email}
+              onChange={(e) => {
+                handleUser(e.target.value, "email");
+              }}
+            />
+          </div>
         </div>
         <div>
-          <label htmlFor="username">Email: </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            required
-            value={user.user.email}
-            onChange={(e) => {
-              handleUser(e.target.value, "email");
-            }}
-          />
+          <div>
+            <label htmlFor="password">Password: </label>
+            <br />
+            <input
+              className={` ${!formValid ? "invalid" : ""}`}
+              type="password"
+              name="password"
+              id="password"
+              required
+              value={user.user.password}
+              onChange={(e) => {
+                handleUser(e.target.value, "password");
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor="confirm-password">Confirm password: </label>
+            <br />
+            <input
+              className={` ${!formValid ? "invalid" : ""}`}
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              required
+              value={user.user["confirm-password"]}
+              onChange={(e) => {
+                handleUser(e.target.value, "confirm-password");
+              }}
+            />
+          </div>
         </div>
         <div>
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            required
-            value={user.user.password}
-            onChange={(e) => {
-              handleUser(e.target.value, "password");
-            }}
-          />
+          <p>
+            <input
+              className="checkbox"
+              type="checkbox"
+              required
+              checked={user.user.checked}
+              onChange={(e) => {
+                handleUser(e.target.value, "checked");
+              }}
+            />
+            By signing up, you accept our Privacy Agreement.
+          </p>
         </div>
-        <div>
-          <label htmlFor="confirm-password">Confirm password: </label>
-          <input
-            type="password"
-            name="confirm-password"
-            id="confirm-password"
-            required
-            value={user.user["confirm-password"]}
-            onChange={(e) => {
-              handleUser(e.target.value, "confirm-password");
-            }}
-          />
-        </div>
-        <div>
-          <input
-            type="checkbox"
-            required
-            checked={user.user.checked}
-            onChange={(e) => {
-              handleUser(e.target.value, "checked");
-            }}
-          />
-          <p>By signing up, you accept our Privacy Agreement.</p>
-        </div>
-        <WhiteBtnWrapper>
-          <button type="submit" className="login-button">
-            Login
-          </button>
-        </WhiteBtnWrapper>
+        <WhiteButton type="submit" className="login-button">
+          Signup
+        </WhiteButton>
       </form>
+      {!formValid ? showPasswordsNoMatch : null}
+      {userRegistered ? showUserAlreadyRegistered : null}
     </div>
   );
 };
