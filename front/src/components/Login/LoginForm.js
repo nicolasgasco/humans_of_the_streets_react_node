@@ -1,8 +1,6 @@
 import "./LoginForm.css";
-import StandardButton from "../UI/StandardButton";
-import WhiteBtnWrapper from "../UI/WhiteBtnWrapper";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import WhiteButton from "../UI/WhiteButton";
+import { useState } from "react";
 
 const LoginForm = (props) => {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -75,13 +73,20 @@ const LoginForm = (props) => {
             }}
           />
         </div>
-        <WhiteBtnWrapper>
-          <button type="submit" className="login-button">
-            Login
-          </button>
-        </WhiteBtnWrapper>
+        <WhiteButton type="submit" className="login-button">
+          Login
+        </WhiteButton>
       </form>
-      <p>Are you new? <span onClick={props.toggleSignupFormVisibility} className="signup-link">Sign up</span> instead.</p>
+      <p className="white-text">
+        Are you new?{" "}
+        <span
+          onClick={props.toggleSignupFormVisibility}
+          className="signup-link"
+        >
+          Sign up
+        </span>{" "}
+        instead.
+      </p>
     </div>
   );
 };
