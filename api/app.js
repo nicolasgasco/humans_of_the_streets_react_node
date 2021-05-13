@@ -106,10 +106,10 @@ app.get("/api/check", (req, res) => {
 });
 
 app.post("/api/signin", function (req, res) {
-  const email = req.body.email;
+  const email = req.body.email.trim();
   const password = bcrypt.hashSync(req.body.password, 10);
-  const name = req.body.name;
-  const surname = req.body.surname;
+  const name = req.body.name.trim();
+  const surname = req.body.surname.trim();
   const dateCreation = new Date();
 
   app.locals.db.collection("users").findOne({ email: email }, (err, user) => {
