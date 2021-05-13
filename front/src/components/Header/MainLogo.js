@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./MainLogo.css";
 
+// Regular logo for pages other than home
 const MainLogo = () => {
   return (
     <div>

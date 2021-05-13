@@ -45,3 +45,15 @@
     border-color: transparent;
   }
 }
+
+@media only screen and (min-width: 600px) {
+  .main-logo {
+    font-family: "Playfair Display SC", serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: 2px;
+    
+    color: white;
+  }
+}
