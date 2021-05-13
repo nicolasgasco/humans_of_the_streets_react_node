@@ -3,22 +3,23 @@ import CountryCitySelector from "../UI/CountryCitySelector";
 import MainWrapper from "../UI/MainWrapper";
 import ShowStories from "./ShowStories";
 
+// Main container where stories are shown
 const BrowseContent = () => {
   const [searchLocale, setSearchLocale] = useState({});
   const [results, setResults] = useState([])
 
+  // API fetch to get the relevant stories
   useEffect(() => {
     let url;
+    // Adapting URL to data provided by country/city selector
     if (searchLocale.country == null) {
       url = '/api/humans/';
-    } else if (searchLocale.city == null || searchLocale.city == "All") {
-      // Api is unfortunately a bit quirky, Null must be added here
+    } else if (searchLocale.city == null || searchLocale.city == "all") {
       url = `/api/humans/${searchLocale.country}/all`;
     } else {
       url = `/api/humans/${searchLocale.country}/${searchLocale.city}`;
     }
 
-    console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((result) => {
@@ -29,6 +30,7 @@ const BrowseContent = () => {
       });
   }, [searchLocale]);
 
+  // Getting city and country up here from below
   const handleSearchLocale = (locale) => {
     setSearchLocale({ city: locale.city, country: locale.country });
   };

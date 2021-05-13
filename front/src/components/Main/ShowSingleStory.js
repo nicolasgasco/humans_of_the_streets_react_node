@@ -1,17 +1,16 @@
-import { useEffect, useState } from "react";
 import CardWrapper from "../UI/CardWrapper";
 import NoImage from "./img/no_image.jpg";
 import "./ShowSingleStory.css";
 
+// Card for showing one single result
 const ShowSingleStory = ({ story }) => {
-  console.log(story);
   return (
-    <CardWrapper className="story-container">
+    <CardWrapper key={story._id} className="story-container">
       <img
         src={story.img || NoImage}
-        alt={`Picture of ${story.name} ${story.surname}`}
+        alt={`${story.name} ${story.surname}`}
       />
-      <div class="story-text-container">
+      <div className="story-text-container">
         <h3>
           {story.name} {story.surname} ({story.age}, {story.gender})
         </h3>
