@@ -1,35 +1,27 @@
-import MainLogo from "./MainLogo";
 import MainNav from "./MainNav";
 import "./MainHeader.css";
-import { useState, useEffect } from "react";
-import StandardButton from "../UI/StandardButton";
 import AnimatedLogo from "./AnimatedLogo";
 
-const MainHeader = () => {
-  // Two different headers for mobile and desktop/tablet version
+// Big header for homepage
+const MainHeader = (props) => {
+  // Two different returns for mobile and desktop/tablet version
   if (window.innerWidth <= 600) {
     return (
-      <>
-        <header className="main-header">
-          <div className="picture-container">
-            <AnimatedLogo />
-          </div>
-          <MainNav />
-        </header>
-        <p>Version movil</p>
-      </>
+      <header className="main-header">
+        <div className="picture-container">
+          <AnimatedLogo />
+          <MainNav toggleLoginFormVisibility={props.toggleLoginFormVisibility} />
+        </div>
+      </header>
     );
   } else {
     return (
-      <>
-        <header className="main-header">
-          <div className="picture-container">
-            <AnimatedLogo />
-          </div>
-          <MainNav />
-        </header>
-        <p>Version escritorio</p>
-      </>
+      <header className="main-header">
+        <div className="picture-container">
+          <AnimatedLogo />
+        </div>
+        <MainNav toggleLoginFormVisibility={props.toggleLoginFormVisibility} />
+      </header>
     );
   }
 };
