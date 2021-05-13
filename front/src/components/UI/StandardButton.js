@@ -3,7 +3,7 @@ import "./StandardButton.css";
 
 function StandardButton(props) {
   return (
-    <a className="btn btn-2">Hovedr</a> 
+    <Link to={props.link} className="standard-button">{props.text}</Link> 
   );
 }
 

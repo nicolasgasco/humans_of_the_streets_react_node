@@ -1,0 +1,14 @@
+.standard-button {
+    outline: 5px white solid;
+
+    padding: 0.7rem 1.2rem;
+
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.standard-button:hover, .standard-button:focus {
+    outline: 5px rgb(236, 236, 236) solid;
+    color: rgb(236, 236, 236);
+}
