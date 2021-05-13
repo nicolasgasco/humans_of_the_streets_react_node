@@ -1,0 +1,27 @@
+.home-content {
+    padding: 1rem;
+}
+
+.home-content__white-header {
+  margin: 0;
+  color: white;
+  font-size: xx-large;
+}
+
+.home-content__allcaps-header {
+  margin: 0.5rem 0;
+  color: rgb(56, 56, 56);
+  text-transform: uppercase;
+  font-size: larger;
+  letter-spacing: 3px;
+}
+
+@media only screen and (min-width: 600px) {
+  footer small {
+    font-size: x-small;
+  }
+  .home-content {
+    padding: 3rem 4rem;
+    max-width: 50%;
+  }
+}
