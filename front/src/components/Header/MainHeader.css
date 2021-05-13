@@ -20,17 +20,21 @@
   background-image: url("./img/pexels-harrison-haines-3536259.jpg");
   background-position: bottom;
   background-size: cover;
+  z-index: -;
 }
 
 @media only screen and (min-width: 600px) {
+  .main-header {
+  }
+
   .picture-container {
     justify-content: space-between;
     flex-wrap: nowrap;
     align-items: baseline;
 
-    height: 96vh;
+    max-height: 96vh;
 
-    margin-bottom: 2vh;
+    margin-bottom: 0;
   }
   
 }
