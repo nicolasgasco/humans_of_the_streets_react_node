@@ -17,6 +17,13 @@ body a {
   color: inherit;
 }
 
+#root {
+  min-height: 100vh;
+  
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (min-width: 600px) {
   body {
     margin: 2vh;
