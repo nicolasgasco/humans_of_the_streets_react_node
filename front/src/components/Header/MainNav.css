@@ -9,8 +9,7 @@
   justify-content: space-around;
   align-items: baseline;
 
-  font-weight: bold;
-  font-size: large;
+
 
   animation: 0.8s fadeIn;
   animation-fill-mode: forwards;
@@ -42,4 +41,15 @@
 .main-nav a {
   color: black;
   text-decoration: none;
+}
+
+.main-nav button {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+}
+
+.main-nav * {
+  font-weight: bold;
+  font-size: large;
 }

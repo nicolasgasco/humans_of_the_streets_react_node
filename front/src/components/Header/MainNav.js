@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import './MainNav.css';
 
-const MainNav = () => {
+const MainNav = (props) => {
     return (
         <nav className="main-nav">
             <Link to="/browse/">Browse</Link>
-            <Link>Join</Link>
+            <button onClick={props.toggleLoginFormVisibility}>Login</button>
         </nav>
     );
   }
