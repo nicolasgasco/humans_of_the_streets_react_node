@@ -3,10 +3,12 @@ import CitySelector from "./CitySelector";
 import "./CountryCitySelector.css";
 import CountrySelector from "./CountrySelector";
 
+// Selector to filter stories per country and/or city
 const CountryCitySelector = (props) => {
   const [currentCountry, setCurrentCountry] = useState(null);
   const [currentCity, setCurrentCity] = useState(null);
 
+  // Sending information up
   useEffect(() => {
     props.handleSearchLocale({ country: currentCountry, city: currentCity });
   }, [currentCountry, currentCity]);
@@ -26,7 +28,7 @@ const CountryCitySelector = (props) => {
   };
 
   return (
-    <div class="country-city-selector">
+    <div className="country-city-selector">
       <CountrySelector handleCurrentCountry={handleCurrentCountry} />
       {currentCountry !== "all" ? (
         <CitySelector
