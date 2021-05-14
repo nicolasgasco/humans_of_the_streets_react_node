@@ -1,6 +1,6 @@
 import './HomeContent.css';
-import ColoredWrapper from "../UI/ColoredWrapper";
-import MainWrapper from "../UI/MainWrapper";
+import ColoredWrapper from "../UI/Wrappers/ColoredWrapper";
+import MainWrapper from "../UI/Wrappers/MainWrapper";
 import StandardButton from '../UI/StandardButton';
 
 // Text content shown on home
