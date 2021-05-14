@@ -1,5 +1,4 @@
 .main-header {
-  outline: 1px blue solid;
   margin: 0;
 
   display: flex;
@@ -36,5 +35,4 @@
 
     margin-bottom: 0;
   }
-  
 }

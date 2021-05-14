@@ -56,4 +56,8 @@
     
     color: white;
   }
+
+  .main-logo:hover {
+    transform: scale(1.02);
+  }
 }

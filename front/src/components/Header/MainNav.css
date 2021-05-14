@@ -2,19 +2,17 @@
   width: 100%;
   padding: 1rem;
 
-  outline: 1px solid red;
-
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: baseline;
 
+  border-bottom: 3px black ;
 
-
-  animation: 0.8s fadeIn;
+  /* animation: 0.8s fadeIn;
   animation-fill-mode: forwards;
-  animation-delay: 2.5s;
-  opacity: 0;
+  animation-delay: 0s;
+  opacity: 0; */
 }
 
 @keyframes fadeIn {
@@ -43,7 +41,8 @@
   text-decoration: none;
 }
 
-.main-nav button {
+.main-nav button,
+.main-nav Link {
   cursor: pointer;
   background-color: transparent;
   border: 0;

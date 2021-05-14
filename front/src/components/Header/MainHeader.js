@@ -1,6 +1,7 @@
 import MainNav from "./MainNav";
 import "./MainHeader.css";
 import AnimatedLogo from "./AnimatedLogo";
+import UserIcon from "../UI/UserIcon";
 
 // Big header for homepage
 const MainHeader = (props) => {
@@ -10,7 +11,7 @@ const MainHeader = (props) => {
       <header className="main-header">
         <div className="picture-container">
           <AnimatedLogo />
-          <MainNav toggleLoginFormVisibility={props.toggleLoginFormVisibility} />
+          <MainNav session={props.session} toggleLoginFormVisibility={props.toggleLoginFormVisibility} />
         </div>
       </header>
     );
@@ -20,7 +21,7 @@ const MainHeader = (props) => {
         <div className="picture-container">
           <AnimatedLogo />
         </div>
-        <MainNav toggleLoginFormVisibility={props.toggleLoginFormVisibility} />
+        <MainNav session={props.session} toggleLoginFormVisibility={props.toggleLoginFormVisibility} />
       </header>
     );
   }
