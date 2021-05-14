@@ -95,7 +95,7 @@ passport.deserializeUser(function (email, done) {
 });
 
 // Route to check if user is logged
-app.get("/api/check", (req, res) => {
+app.get("/api/login/check", (req, res) => {
   if (req.session.passport) {
     console.log("Logged: ", req.session.passport);
     res.send({ isLogged: true });
