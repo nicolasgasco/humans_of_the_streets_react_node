@@ -126,7 +126,7 @@ router.get("/:country/:city", (req, res) => {
 });
 
 // Insert new story
-router.post("/", (req, res) => {
+router.post("/new", (req, res) => {
   let db = req.app.locals.db;
 
   const newStory = req.body;
