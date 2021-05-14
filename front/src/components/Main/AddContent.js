@@ -1,10 +1,11 @@
-import MainWrapper from "../UI/MainWrapper";
+import MainWrapper from "../UI/Wrappers/MainWrapper";
+import AddStoryForm from "./AddStoryForm/AddStoryForm";
 
 // Main tag to add a new story
 const AddContent = () => {
   return (
     <MainWrapper>
-      <h2>Add a new story</h2>
+      <AddStoryForm />
     </MainWrapper>
   );
 };
