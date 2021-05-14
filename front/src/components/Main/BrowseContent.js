@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import CountryCitySelector from "../UI/CountryCitySelector";
-import MainWrapper from "../UI/MainWrapper";
+import CountryCitySelector from "../UI/CountryCitySelector/CountryCitySelector";
+import MainWrapper from "../UI/Wrappers/MainWrapper";
 import ShowStories from "./ShowStories";
 
 // Main container where stories are shown
 const BrowseContent = () => {
   const [searchLocale, setSearchLocale] = useState({});
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState([]);
 
   // API fetch to get the relevant stories
   useEffect(() => {
     let url;
     // Adapting URL to data provided by country/city selector
     if (searchLocale.country == null) {
-      url = '/api/humans/';
+      url = "/api/humans/";
     } else if (searchLocale.city == null || searchLocale.city == "all") {
       url = `/api/humans/${searchLocale.country}/all`;
     } else {
@@ -40,7 +40,7 @@ const BrowseContent = () => {
       <h2>Read their stories</h2>
       <p>Choose a country and/or a city to start browsing their stories.</p>
       <CountryCitySelector handleSearchLocale={handleSearchLocale} />
-      <ShowStories results={results}/>
+      <ShowStories results={results} />
     </MainWrapper>
   );
 };
