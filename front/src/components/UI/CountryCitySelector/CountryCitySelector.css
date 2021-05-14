@@ -1,0 +1,8 @@
+.country-city-selector select {
+    border: 0;
+    background: transparent;
+    border-bottom: 3px #F3F7F5 solid;
+}
+.country-city-selector label {
+    font-weight: bold;
+}
