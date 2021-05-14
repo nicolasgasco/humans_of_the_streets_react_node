@@ -1,8 +1,7 @@
-import "./WhiteButton.css";
+import styles from "./WhiteButton.module.css";
 
 // Wrapper to style white/transparent buttons
 const WhiteButton = (props) => {
-  const classes = "white-button " + props.className;
-  return <button type={props.type} onClick={props.onClick} className={classes}>{props.children}</button>;
+  return <button type={props.type} onClick={props.onClick} className={styles["white-button"]}>{props.text}</button>;
 };
 export default WhiteButton;

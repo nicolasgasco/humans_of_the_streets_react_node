@@ -1,0 +1,20 @@
+.dark-button {
+    border: 5px #606664 solid;
+    background-color: transparent;
+  
+    padding: 0.7rem 1.2rem;
+    margin: 1rem 0;
+  }
+  
+  .dark-button {
+    color: #606664;
+    font-weight: bold;
+    font-size: large;
+  }
+  
+  .dark-button:hover,
+  .dark-button:focus {
+    border: 5px #808885 solid;
+    color: #808885;
+  }
+  

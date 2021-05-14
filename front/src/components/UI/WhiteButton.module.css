@@ -1,0 +1,19 @@
+.white-button {
+  border: 5px white solid;
+  background-color: transparent;
+
+  padding: 0.7rem 1.2rem;
+  margin: 1rem 0;
+}
+
+.white-button {
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}
+
+.white-button:hover,
+.white-button:focus {
+  border: 5px rgb(236, 236, 236) solid;
+  color: rgb(236, 236, 236);
+}
