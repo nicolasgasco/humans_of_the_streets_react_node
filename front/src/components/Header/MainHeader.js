@@ -11,8 +11,8 @@ const MainHeader = (props) => {
       <header className="main-header">
         <div className="picture-container">
           <AnimatedLogo />
-          <MainNav session={props.session} toggleLoginFormVisibility={props.toggleLoginFormVisibility} />
         </div>
+        <MainNav session={props.session} toggleLoginFormVisibility={props.toggleLoginFormVisibility} />
       </header>
     );
   } else {
