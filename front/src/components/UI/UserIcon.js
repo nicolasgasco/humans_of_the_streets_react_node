@@ -1,9 +1,14 @@
 import "./UserIcon.css";
 
-const UserIcon = () => {
-  return (
-    <button className="user-icon"></button>
-  );
+const UserIcon = (props) => {
+  if (props.session) {
+    return (
+      <button className="user-icon"></button>
+    );
+  } else {
+    return null;
+  }
+
 }
 
 export default UserIcon;
