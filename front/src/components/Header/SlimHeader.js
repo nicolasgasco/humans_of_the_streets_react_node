@@ -3,11 +3,11 @@ import UserIcon from "../UI/UserIcon";
 import "./SlimHeader.css";
 
 // Smaller header for pages other than home
-const SlimHeader = () => {
+const SlimHeader = (props) => {
   return (
     <div className="slim-header">
       <MainLogo />
-      <UserIcon />
+      <UserIcon session={props.session}/>
     </div>
   );
 };
