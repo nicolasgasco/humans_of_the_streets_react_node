@@ -1,4 +1,4 @@
-import CardWrapper from "../UI/CardWrapper";
+import CardWrapper from "../UI/Wrappers/CardWrapper";
 import NoImage from "./img/no_image.jpg";
 import "./ShowSingleStory.css";
 
