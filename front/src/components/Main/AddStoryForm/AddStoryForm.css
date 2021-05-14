@@ -1,0 +1,44 @@
+.story-submitted {
+}
+
+.story-submitted__header {
+  color: white;
+  font-size: x-large;
+  margin-bottom: 2rem;
+}
+
+.addstory-container {
+  border: 4px #606664 dotted;
+
+  padding: 1rem 1.5rem;
+}
+
+.addstory-container h2,
+.addstory-container h3 {
+  margin: 0;
+}
+
+.addstory-container input, .addstory-container textarea, .addstory-container select {
+  width: 100%;
+
+  border: 0;
+  border-bottom: 3px #606664 solid;
+
+  background-color: #cedad6;
+}
+
+.shorter-input {
+    display: inline-block;
+
+    
+    margin-right: 1rem;
+}
+
+.shorter-input input, .shorter-input select {
+    width: fit-content;
+}
+
+.newstory-button {
+    outline: 1px red solid;
+    margin: 2rem 0;
+}
