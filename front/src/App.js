@@ -12,12 +12,21 @@ import ProfileContent from "./components/Main/ProfileContent";
 import StandardButton from "./components/UI/StandardButton";
 
 const App = () => {
-  const [session, setSession] = useState(localStorage.getItem("logged"));
+  const [session, setSession] = useState(() => {
+    fetch("/api/login/check")
+      .then((res) => res.json())
+      .then((result) => {
+        setSession(result.isLogged);
+      })
+      .catch(function (error) {
+        console.log("An error occurred: " + error.message);
+      });
+  });
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
-  console.log(session);
+
   const handleSession = (value) => {
-    console.log(session);
+
     setSession(value);
     if (value) {
       localStorage.setItem("logged", true);
