@@ -1,6 +1,7 @@
 import "./LoginForm.css";
 import WhiteButton from "../UI/WhiteButton";
 import { useState } from "react";
+import { Redirect } from "react-router";
 
 const LoginForm = (props) => {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -22,6 +23,7 @@ const LoginForm = (props) => {
           window.alert("Welcome back!");
           setUser({ email: "", password: "" });
           props.onLogin(true);
+          props.toggleLoginFormVisibility();
         } else {
           window.alert("Wrong user or password!");
           setUser({ email: "", password: "" });
