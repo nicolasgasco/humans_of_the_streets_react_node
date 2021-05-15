@@ -26,6 +26,16 @@ body a {
   background-color: #f3f7f5;
 }
 
+button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
 @media only screen and (min-width: 600px) {
   body {
     margin: 2vh;
