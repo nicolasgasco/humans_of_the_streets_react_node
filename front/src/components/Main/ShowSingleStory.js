@@ -3,13 +3,12 @@ import NoImage from "./img/no_image.jpg";
 import "./ShowSingleStory.css";
 
 // Card for showing one single result
-const ShowSingleStory = ({ story }) => {
+const ShowSingleStory = ({ story, editStoryUI }) => {
+
   return (
     <CardWrapper key={story._id} className="story-container">
-      <img
-        src={story.img || NoImage}
-        alt={`${story.name} ${story.surname}`}
-      />
+      {editStoryUI ? editStoryUI : null}
+      <img src={story.img || NoImage} alt={`${story.name} ${story.surname}`} />
       <div className="story-text-container">
         <h3>
           {story.name} {story.surname} ({story.age}, {story.gender})
