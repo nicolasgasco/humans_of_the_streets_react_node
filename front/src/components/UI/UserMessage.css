@@ -26,6 +26,7 @@
 
 .modal-text {
   margin-top: 2rem;
+  font-size: larger;
 }
 
 .modal-button {
@@ -40,10 +41,29 @@
   outline: inherit;
 
   font-weight: bold;
-  font-size: large;
+  font-size: medium;
 
   border: 3px black solid;
   padding: 0.5rem 2rem;
 
+  margin: 0 1rem;
   margin-top: 1rem;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.left-button {
+  background-color: #98a19e;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .modal-button:hover, .left-button:hover {
+    background-color: #606664;
+  }
+  
 }

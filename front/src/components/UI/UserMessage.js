@@ -1,6 +1,15 @@
 import "./UserMessage.css";
 const UserMessage = (props) => {
-  const cancelButton = <button onClick={() => {props.onClick("")}} className="modal-button">Cancel</button>;
+  const cancelButton = (
+    <button
+      onClick={() => {
+        props.onClick("");
+      }}
+      className="modal-button left-button"
+    >
+      Cancel
+    </button>
+  );
 
   const okUserMessage = () => {
     // Send id to delete
@@ -17,10 +26,12 @@ const UserMessage = (props) => {
     <div className="modal">
       <div className="modal-content">
         <p className="modal-text">{props.text}</p>
-        {props.cancelButton ? cancelButton : null}
-        <button onClick={okUserMessage} className="modal-button">
-          Ok
-        </button>
+        <div className="button-container">
+          {props.cancelButton ? cancelButton : null}
+          <button onClick={okUserMessage} className="modal-button">
+            Ok
+          </button>
+        </div>
       </div>
     </div>
   );
