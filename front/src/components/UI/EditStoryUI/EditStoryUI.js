@@ -12,7 +12,7 @@ const EditStoryUI = (props) => {
 
   return (
     <div className="edit-story-UI">
-      <button onClick={clickDelete}>Delete</button>
+      <button onClick={clickDelete} className="delete-button"></button>
     </div>
   );
 };
