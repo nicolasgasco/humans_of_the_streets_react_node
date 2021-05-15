@@ -2,6 +2,7 @@ import "./LoginForm.css";
 import WhiteButton from "../UI/WhiteButton";
 import { useState } from "react";
 import { Redirect } from "react-router";
+import UserMessage from "../UI/UserMessage";
 
 const LoginForm = (props) => {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -20,12 +21,13 @@ const LoginForm = (props) => {
       .then((res) => res.json())
       .then((result) => {
         if (result.session) {
-          window.alert("Welcome back!");
+          props.handleModalMessage("Welcome back!");
           setUser({ email: "", password: "" });
           props.onLogin(true);
+          sessionStorage.setItem("user", result.user._id);
           props.toggleLoginFormVisibility();
         } else {
-          window.alert("Wrong user or password!");
+          props.handleModalMessage("Wrong user or password!");
           setUser({ email: "", password: "" });
         }
       })
@@ -75,9 +77,7 @@ const LoginForm = (props) => {
             }}
           />
         </div>
-        <WhiteButton type="submit" className="login-button">
-          Login
-        </WhiteButton>
+        <WhiteButton type="submit" className="login-button" text="Login" />
       </form>
       <p className="white-text">
         Are you new?{" "}
