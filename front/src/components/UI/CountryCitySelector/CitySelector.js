@@ -13,6 +13,9 @@ const CitySelector = (props) => {
         .then((res) => res.json())
         .then((result) => {
           setCities(result.results.sort());
+        })
+        .catch(function (error) {
+          console.log("An error occurred: " + error.message);
         });
     }
   }, [props.country]);
