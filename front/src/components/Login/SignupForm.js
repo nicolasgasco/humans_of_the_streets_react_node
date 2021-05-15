@@ -182,9 +182,7 @@ const SignupForm = (props) => {
             By signing up, you accept our Privacy Agreement.
           </p>
         </div>
-        <WhiteButton type="submit" className="login-button">
-          Signup
-        </WhiteButton>
+        <WhiteButton type="submit" className="login-button" text="Login" />
       </form>
       {!formValid ? showPasswordsNoMatch : null}
       {userRegistered ? showUserAlreadyRegistered : null}
