@@ -1,0 +1,10 @@
+.edit-story-UI {
+    width: 100%;
+
+    background-color: #606664;
+
+    display: flex;
+    justify-content: flex-start;
+
+    padding: 0.5rem 1rem;
+}
