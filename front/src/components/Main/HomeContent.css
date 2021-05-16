@@ -1,9 +1,8 @@
 .home-content {
-    padding: 1rem 2rem;
+  padding: 1rem 2rem;
+  padding-bottom: 3rem;
 
-    background-color: #818181;
-
-    padding-bottom: 3rem;
+  background-color: #818181;
 }
 
 .home-content__white-header {
@@ -25,12 +24,24 @@
   margin-bottom: 3rem;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 750px) {
   footer small {
     font-size: x-small;
   }
+
+  .home-content__container {
+    height: 595px;
+    display: flex;
+    flex-wrap: nowrap;
+
+    width: 80%;
+    margin: 5rem auto;
+  }
+
   .home-content {
-    padding: 3rem 4rem;
-    max-width: 50%;
+    padding: 2rem 2em;
+    display: block;
+    width: 40%;
+    height: 595px;
   }
 }
