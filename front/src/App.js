@@ -9,7 +9,7 @@ import AddContent from "./components/Main/AddContent";
 import BrowseContent from "./components/Main/BrowseContent";
 import HomeContent from "./components/Main/HomeContent";
 import ProfileContent from "./components/Main/ProfileContent";
-import StandardButton from "./components/UI/StandardButton";
+import UserIcon from "./components/UI/UserIcon";
 import UserMessage from "./components/UI/UserMessage";
 
 const App = () => {
@@ -41,12 +41,17 @@ const App = () => {
         console.log("An error occurred: " + error.message);
       });
   });
+  // Show login pane or not
   const [showLogin, setShowLogin] = useState(false);
+  // Show signup pane or not
   const [showSignup, setShowSignup] = useState(false);
+  // What do you want to show in a pop window
   const [modalMessage, setModalMessage] = useState(null);
+  // Which story to delete
   const [storyToDelete, setStoryToDelete] = useState({
     storyToDelete: { id: "", delete: false },
   });
+  const [showUserPane, setShowUserPane] = useState(false);
 
   const handleSession = (value) => {
     setSession(value);
@@ -78,9 +83,10 @@ const App = () => {
     setStoryToDelete(value);
   };
 
+  // Delete story
   useEffect(() => {
+    // Only if both story id and trigger are active
     if (storyToDelete.storyToDelete.id && storyToDelete.storyToDelete.delete) {
-      console.log(storyToDelete.storyToDelete.id);
       fetch(`/api/humans/${storyToDelete.storyToDelete.id}`, {
         method: "DELETE",
       })
@@ -95,6 +101,32 @@ const App = () => {
         });
     }
   }, [storyToDelete]);
+
+  const toggleUserPaneVisibility = () => {
+    setShowUserPane(!showUserPane);
+  };
+
+  const logOutUser = () => {
+    fetch("/api/logout", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.loggedOut) {
+          handleSession(false);
+        } else {
+          handleModalMessage("It wasn't possible to log you out!");
+        }
+      })
+      .catch(function (error) {
+        console.log("An error occurred: " + error.message);
+      });
+  }
+
+  console.log(UserMessage)
 
   return (
     <BrowserRouter>
@@ -120,13 +152,19 @@ const App = () => {
           <HomeContent />
         </Route>
 
-        <Route path="/browse">
-          <SlimHeader session={session} />
-          <BrowseContent />
+        <Route exact path="/browse">
+          <SlimHeader
+            session={session}
+            toggleUserPaneVisibility={toggleUserPaneVisibility}
+          />
+          <BrowseContent
+            showUserPane={showUserPane}
+            toggleUserPaneVisibility={toggleUserPaneVisibility}
+          />
         </Route>
 
         {session ? (
-          <Route path="/profile">
+          <Route exact path="/profile">
             {modalMessage ? (
               <UserMessage
                 onClick={handleModalMessage}
@@ -140,7 +178,9 @@ const App = () => {
               session={session}
               handleModalMessage={handleModalMessage}
               handleStoryToDelete={handleStoryToDelete}
+              handleSession={handleSession}
               storyToDelete={storyToDelete}
+              logOutUser={logOutUser}
             />
           </Route>
         ) : (
@@ -148,8 +188,14 @@ const App = () => {
         )}
 
         <Route path="/add">
-          <SlimHeader session={session} />
-          <AddContent />
+          <SlimHeader
+            session={session}
+            toggleUserPaneVisibility={toggleUserPaneVisibility}
+          />
+          <AddContent
+            showUserPane={showUserPane}
+            toggleUserPaneVisibility={toggleUserPaneVisibility}
+          />
         </Route>
       </Switch>
       <Footer />
