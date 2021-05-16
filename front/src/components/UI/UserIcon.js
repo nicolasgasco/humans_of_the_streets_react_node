@@ -3,7 +3,7 @@ import "./UserIcon.css";
 const UserIcon = (props) => {
   if (props.session) {
     return (
-      <button className="user-icon"></button>
+      <button onClick={props.toggleUserPaneVisibility} className="user-icon"></button>
     );
   } else {
     return null;

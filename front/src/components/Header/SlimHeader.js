@@ -7,7 +7,7 @@ const SlimHeader = (props) => {
   return (
     <div className="slim-header">
       <MainLogo />
-      <UserIcon session={props.session}/>
+      <UserIcon toggleUserPaneVisibility={props.toggleUserPaneVisibility} session={props.session}/>
     </div>
   );
 };
