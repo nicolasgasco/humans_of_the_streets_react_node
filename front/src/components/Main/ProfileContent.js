@@ -6,9 +6,8 @@ import ShowSubmittedStories from "./ShowSubmittedStories";
 const ProfileContent = (props) => {
   return (
     <MainWrapper>
+      <ProfileNav handleSession={props.handleSession} logOutUser={props.logOutUser}/>
       <h2>Your profile</h2>
-      <h3>Navigate around the website</h3>
-      <ProfileNav />
       <h3>Modify your data</h3>
       <ShowSubmittedStories handleModalMessage={props.handleModalMessage} handleStoryToDelete={props.handleStoryToDelete} storyToDelete={props.storyToDelete}/>
     </MainWrapper>
