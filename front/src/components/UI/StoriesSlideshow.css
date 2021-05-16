@@ -1,0 +1,29 @@
+.carousel-container {
+    display: none !important;
+}
+
+.carousel-caption {
+    color: black;
+    background-color: #6E8680d5;
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+
+    padding: 1rem 1.5rem;
+}
+
+@media only screen and (min-width: 750px) {
+  .carousel-container {
+    width: 60%;
+    display: inline-block !important;
+  }
+
+  .carousel-img {
+    width: 100% !important;
+    height: 595px;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: ;
+  }
+}
