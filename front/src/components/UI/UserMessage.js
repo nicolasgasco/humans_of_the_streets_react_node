@@ -13,11 +13,14 @@ const UserMessage = (props) => {
 
   const okUserMessage = () => {
     // Send id to delete
-    props.handleStoryToDelete((prevState) => {
-      let storyToDelete = Object.assign({}, prevState.storyToDelete);
-      storyToDelete["delete"] = true;
-      return { storyToDelete };
-    });
+    if (props.handleStoryToDelete) {
+      props.handleStoryToDelete((prevState) => {
+        let storyToDelete = Object.assign({}, prevState.storyToDelete);
+        storyToDelete["delete"] = true;
+        return { storyToDelete };
+      });
+    }
+
     // Close window message
     props.onClick(null);
   };
