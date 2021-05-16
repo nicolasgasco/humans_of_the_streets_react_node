@@ -10,8 +10,8 @@ const ProfileNav = (props) => {
       <Link to="/add/">
         <div>Add new story</div>
       </Link>
-      <Link to="/">
-        <div>Homepage</div>
+      <Link to="/" onClick={props.logOutUser}>
+        <div className="accented-button">Logout</div>
       </Link>
     </nav>
   );
