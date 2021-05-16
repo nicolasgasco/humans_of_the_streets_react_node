@@ -15,9 +15,13 @@
   padding: 1rem 2rem;
   margin: 0.5rem auto;
 
-  color: #606664;
+  color: black;
   text-align: center;
   font-weight: bold;
+}
+
+.accented-button {
+  background-color: #cdd6d3;
 }
 
 @media only screen and (min-width: 750px) {
