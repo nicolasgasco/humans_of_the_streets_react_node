@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import CountryCitySelector from "../UI/CountryCitySelector/CountryCitySelector";
+import UserPane from "../UI/UserPane";
 import MainWrapper from "../UI/Wrappers/MainWrapper";
 import ShowStories from "./ShowStories";
 
 // Main container where stories are shown
-const BrowseContent = () => {
+const BrowseContent = (props) => {
   const [searchLocale, setSearchLocale] = useState({});
   const [results, setResults] = useState([]);
 
@@ -36,12 +37,23 @@ const BrowseContent = () => {
   };
 
   return (
-    <MainWrapper>
-      <h2>Read their stories</h2>
-      <p>Choose a country and/or a city to start browsing their stories.</p>
-      <CountryCitySelector handleSearchLocale={handleSearchLocale} />
-      <ShowStories results={results} />
-    </MainWrapper>
+    <>
+      <UserPane
+        linksToShow={[
+          ["Your profile", "/profile"],
+          ["Add story", "/add"],
+          ["Homepage", "/"],
+        ]}
+        userPaneVisibility={props.showUserPane}
+        toggleUserPaneVisibility={props.toggleUserPaneVisibility}
+      />
+      <MainWrapper>
+        <h2>Read their stories</h2>
+        <p>Choose a country and/or a city to start browsing their stories.</p>
+        <CountryCitySelector handleSearchLocale={handleSearchLocale} />
+        <ShowStories results={results} />
+      </MainWrapper>
+    </>
   );
 };
 
