@@ -2,10 +2,12 @@
   width: 100%;
   padding: 1rem;
 
+  height: 10vh;
+
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
 
   border-bottom: 3px black ;
 
