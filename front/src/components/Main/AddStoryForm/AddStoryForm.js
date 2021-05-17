@@ -334,7 +334,7 @@ const AddStoryForm = (props) => {
                 name="share-consent"
                 value="true"
               />
-              <label for="share-yes">Yes</label>
+              <label htmlFor="share-yes">Yes</label>
               <input
                 type="radio"
                 id="share-no"
@@ -342,7 +342,7 @@ const AddStoryForm = (props) => {
                 value="false"
                 checked
               />
-              <label for="share-no">No</label>
+              <label htmlFor="share-no">No</label>
             </div>
           </div>
           <DarkButton
