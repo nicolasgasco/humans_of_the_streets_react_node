@@ -52,8 +52,8 @@ const ShowSubmittedStories = (props) => {
 
   return (
     <div>
-      <h2>Your submitted stories</h2>
-      <div>{showFilteredStories}</div>
+      <h3>Your submitted stories</h3>
+      <div className="results-container">{showFilteredStories}</div>
     </div>
   );
 };
