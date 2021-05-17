@@ -1,3 +1,4 @@
+import CardWrapper from "../UI/Wrappers/CardWrapper";
 import ShowSingleStory from "./ShowSingleStory";
 import "./ShowStories.css";
 
@@ -10,7 +11,18 @@ const ShowStories = ({ results }) => {
     }
   });
 
-  return <div className="results-container">{showResults}</div>;
+  if (results.length > 0) {
+    return <div className="results-container">{showResults}</div>;
+  } else {
+    return (
+      <div className="results-container">
+        <CardWrapper className="something-went-wrong">
+          <h3>Ops! Something went wrong :(</h3>
+          <p>Try refreshing the page. We're sorry for the inconvenience.</p>
+        </CardWrapper>
+      </div>
+    );
+  }
 };
 
 export default ShowStories;
