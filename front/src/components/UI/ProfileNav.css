@@ -10,6 +10,8 @@
   border-bottom: 4px solid #606664;
   border-left: 6px solid #606664;
 
+  background-color: white;
+
   min-width: fit-content;
   width: 70%;
   padding: 1rem 2rem;
@@ -21,7 +23,7 @@
 }
 
 .accented-button {
-  background-color: #cdd6d3;
+  background-color: #d5e4df !important;
 }
 
 @media only screen and (min-width: 750px) {
