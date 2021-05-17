@@ -22,9 +22,7 @@ const HomeContent = () => {
             </p>
             <p>You can start making a difference right now.</p>
           </div>
-          <Link to="/browse/" className="standard-button">
-            Start&nbsp;browsing
-          </Link>
+          <StandardButton to="/browse/" text="Start&nbsp;browsing" />
         </div>
         <StoriesSlideshow />
       </div>
