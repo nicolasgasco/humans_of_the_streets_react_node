@@ -1,12 +1,12 @@
 .carousel-container {
-    display: none !important;
+    display: none;
 }
 
 .carousel-caption {
     color: black;
-    background-color: #6E8680d5;
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
+    background-color: #a4c7be9b;
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
 
     padding: 1rem 1.5rem;
 }
