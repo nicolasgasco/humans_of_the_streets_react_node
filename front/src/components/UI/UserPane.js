@@ -10,9 +10,9 @@ const UserPane = (props) => {
     setPaneVisiblity(props.userPaneVisibility);
   }, [props.userPaneVisibility]);
 
-  const showLinks = props.linksToShow.map((link) => {
+  const showLinks = props.linksToShow.map((link, index) => {
     return (
-      <li>
+      <li key={`link-${index}`}>
         <Link to={link[1]} className="user-pane-link" onClick={props.toggleUserPaneVisibility} >
           {link[0]}
         </Link>
