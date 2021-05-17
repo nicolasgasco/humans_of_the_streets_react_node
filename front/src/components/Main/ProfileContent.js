@@ -7,9 +7,18 @@ import AccordionProfile from "../UI/AccordionProfile";
 // Main container where stories are shown
 const ProfileContent = (props) => {
   const accordionComponents = [
-    { title: "Your user data", body: <ShowPersonalData /> },
     {
-      title: "Your submitted stories",
+      title: "Navigation",
+      body: (
+        <ProfileNav
+          handleSession={props.handleSession}
+          logOutUser={props.logOutUser}
+        />
+      ),
+    },
+    { title: "Edit user data", body: <ShowPersonalData /> },
+    {
+      title: "Edit submitted stories",
       body: (
         <ShowSubmittedStories
           handleModalMessage={props.handleModalMessage}
@@ -17,14 +26,10 @@ const ProfileContent = (props) => {
           storyToDelete={props.storyToDelete}
         />
       ),
-    }
+    },
   ];
   return (
     <MainWrapper>
-      <ProfileNav
-        handleSession={props.handleSession}
-        logOutUser={props.logOutUser}
-      />
       <h2>Your profile</h2>
       <AccordionProfile components={accordionComponents} />
     </MainWrapper>
