@@ -5,16 +5,16 @@ import ShowPersonalData from "../Main/ShowPersonalData";
 import classes from "./AccordionProfile.module.css";
 
 const AccordionProfile = (props) => {
-  const [eventKey, setEventKey] = useState(0);
-  const showComponentCards = props.components.map((component) => {
-
+  const showComponentCards = props.components.map((component, index) => {
     return (
-      <Card>
-        <Accordion.Toggle as={Card.Header} eventKey={eventKey}>
-          <h3>{component.title}</h3>
+      <Card key={`card-${index}`}>
+        <Accordion.Toggle as={Card.Header} eventKey={`${index}`} className={classes["accordion-header"]}>
+          <h3 className={classes["accordion-title"]}>{component.title}</h3>
         </Accordion.Toggle>
-        <Accordion.Collapse eventKey={eventKey}>
-          <Card.Body>{component.body}</Card.Body>
+        <Accordion.Collapse eventKey={`${index}`}>
+          <Card.Body>
+            <section>{component.body}</section>
+          </Card.Body>
         </Accordion.Collapse>
       </Card>
     );
