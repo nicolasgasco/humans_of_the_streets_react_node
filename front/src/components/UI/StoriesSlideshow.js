@@ -18,7 +18,7 @@ const StoriesSlideshow = () => {
   let showCarouselItems;
   if (!homeStories) {
     showCarouselItems = (
-      <Carousel.Item>
+      <Carousel.Item key={"loading"}>
         <img
           className="d-block w-100 carousel-img"
           src={LoadingGif}
@@ -31,9 +31,8 @@ const StoriesSlideshow = () => {
     );
   } else {
     showCarouselItems = homeStories.map((story) => {
-      console.log(story);
       return (
-        <Carousel.Item>
+        <Carousel.Item key={story._id}>
           <img
             className="d-block w-100 carousel-img"
             src={story.img}
