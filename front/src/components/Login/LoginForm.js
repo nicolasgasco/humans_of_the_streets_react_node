@@ -33,6 +33,7 @@ const LoginForm = (props) => {
       })
       .catch(function (error) {
         console.log("An error occurred: " + error.message);
+        props.handleModalMessage("Something went wrong :( Try again.");
       });
   };
 
