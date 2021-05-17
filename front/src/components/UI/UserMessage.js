@@ -1,15 +1,20 @@
-import "./UserMessage.css";
+import classes from "./UserMessage.module.css";
+
 const UserMessage = (props) => {
   const cancelButton = (
     <button
       onClick={() => {
         props.onClick("");
       }}
-      className="modal-button left-button"
+      className={`${classes["modal-button"]} ${classes["left-button"]}`}
     >
       Cancel
     </button>
   );
+
+  const closeUserMessage = () => {
+    props.onClick(null);
+  };
 
   const okUserMessage = () => {
     // Send id to delete
@@ -20,18 +25,23 @@ const UserMessage = (props) => {
         return { storyToDelete };
       });
     }
-
     // Close window message
     props.onClick(null);
   };
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <p className="modal-text">{props.text}</p>
-        <div className="button-container">
+    <div
+      onClick={closeUserMessage}
+      className={`${classes.modal} ${props.className}`}
+    >
+      <div className={`${classes["modal-content"]}`}>
+        <p className={`${classes["modal-text"]}`}>{props.text}</p>
+        <div className={`${classes["button-container"]}`}>
           {props.cancelButton ? cancelButton : null}
-          <button onClick={okUserMessage} className="modal-button">
+          <button
+            onClick={okUserMessage}
+            className={`${classes["modal-button"]}`}
+          >
             Ok
           </button>
         </div>

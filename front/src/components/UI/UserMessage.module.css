@@ -1,0 +1,69 @@
+/* The Modal (background) */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.609); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 1rem 2rem;
+  border: 1px solid #888;
+  border-radius: 5px;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 500px;
+
+  text-align: center;
+}
+
+.modal-text {
+  margin-top: 2rem;
+  font-size: larger;
+}
+
+.modal-button {
+  /* Reset default styles */
+  width: fit-content;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+
+  font-weight: bold;
+  font-size: medium;
+
+  border: 3px black solid;
+  padding: 0.5rem 2rem;
+
+  margin: 0 1rem;
+  margin-top: 1rem;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.left-button {
+  background-color: #98a19e;
+}
+
+
+@media only screen and (min-width: 600px) {
+  .modal-button:hover, .left-button:hover {
+    background-color: #606664;
+  }
+  
+}
