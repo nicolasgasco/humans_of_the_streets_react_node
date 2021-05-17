@@ -27,4 +27,12 @@
   .delete-button:hover {
     background-image: url("./img/trash_dark.png");
   }
+
+  .delete-button {
+    width: 1.5vw;
+    height: 1.5vw;
+
+    max-width: 30px;
+    max-height: 30px;
+  }
 }
