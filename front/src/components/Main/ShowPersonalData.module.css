@@ -1,0 +1,10 @@
+.personal-data-container {
+    border: 3px #606664 solid;
+    border-bottom: 5px #606664 solid;
+    margin: 1rem;
+    padding: 1rem 1.5rem;
+}
+
+.show-data-button {
+    margin-right: 1rem;
+}
