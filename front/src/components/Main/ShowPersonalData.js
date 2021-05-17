@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./ShowPersonalData.module.css";
 import DarkButton from "../UI/DarkButton";
 import UserMessage from "../UI/UserMessage";
+import ConfirmCancelButtons from "./ConfirmCancelButtons";
 
 const ShowPersonalData = () => {
   const [userId, setUserId] = useState(sessionStorage.getItem("user"));
@@ -17,9 +18,15 @@ const ShowPersonalData = () => {
   });
   const [formDisabled, setFormDisabled] = useState(true);
   const [showModal, setShowModal] = useState(false);
-	const [modalText, setModalText] = useState("");
+  const [showPasswordEdit, setShowPasswordEdit] = useState(false);
+  const [modalText, setModalText] = useState("");
+  const [newPasswordObj, setNewPasswordObj] = useState({ newPasswordObj: {} });
 
   const handleFormSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleChangePassword = (e) => {
     e.preventDefault();
   };
 
@@ -27,22 +34,104 @@ const ShowPersonalData = () => {
     setFormDisabled(false);
   };
 
-  const modifyButtons = (
-    <div>
-      <DarkButton
-        text="Modify data"
-        className={classes["show-data-button"]}
-        onClick={activateDataEdit}
-      />
-      <DarkButton
-        text="Modify password"
-        className={classes["show-data-button"]}
-      />
-    </div>
-  );
+  const activatePasswordEdit = () => {
+    setShowPasswordEdit(true);
+  };
 
   const cancelEdits = () => {
     setFormDisabled(true);
+  };
+
+  const cancelPasswordEdit = () => {
+    setShowPasswordEdit(false);
+  };
+
+  const handleNewPasswordObj = (e, key) => {
+    setNewPasswordObj((prevState) => {
+      const newPasswordObj = Object.assign(prevState.newPasswordObj);
+      newPasswordObj[key] = e.target.value.trim();
+      return { newPasswordObj };
+    });
+  };
+
+  const confirmPasswordEdit = () => {
+    // Password validation
+    console.log(
+      personalData.user.email,
+      newPasswordObj.newPasswordObj.currentPassword
+    );
+
+    // Check old password
+    fetch("/api/login", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        email: personalData.user.email,
+        password: newPasswordObj.newPasswordObj.currentPassword,
+      }),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        // Password is right
+        if (result.session) {
+          if (
+            newPasswordObj.newPasswordObj.newPassword !==
+            newPasswordObj.newPasswordObj.confirmPassword
+          ) {
+            setModalText("The two passwords don't match!");
+            setShowModal(true);
+            setNewPasswordObj({ newPasswordObj: {} });
+            return;
+          }
+          // Set new password in place of old one
+          setPersonalData((prevState) => {
+            const user = Object.assign(prevState.user);
+            user.password = newPasswordObj.newPasswordObj.confirmPassword;
+            return { user };
+          });
+
+          // Set new password
+          fetch("/api/users/password", {
+            headers: {
+              "Content-Type": "application/json",
+            },
+            method: "PUT",
+            body: JSON.stringify({
+              _id: personalData.user._id,
+              password: personalData.user.password,
+            }),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+							console.log(result);
+							console.log(result)
+              if (result.nModified === 1) {
+                setShowModal(true);
+                setModalText("Personal details changed successfully!");
+								setNewPasswordObj({ newPasswordObj: {} });
+								setShowPasswordEdit(false);
+              } else {
+								setShowModal(true);
+                setModalText("The was an issue with your request!");
+								setNewPasswordObj({ newPasswordObj: {} });
+								setShowPasswordEdit(false);
+							}
+            })
+            .catch(function (error) {
+              console.log("An error occurred: " + error.message);
+            });
+        } else {
+          setModalText("The password you inserted is wrong!");
+          setShowModal(true);
+          setNewPasswordObj({ newPasswordObj: {} });
+          return;
+        }
+      })
+      .catch(function (error) {
+        console.log("An error occurred: " + error.message);
+      });
   };
 
   const confirmEdits = () => {
@@ -60,9 +149,10 @@ const ShowPersonalData = () => {
     })
       .then((res) => res.json())
       .then((result) => {
+        console.log(result);
         if (result.results.modifiedCount === 1) {
           setShowModal(true);
-					setModalText("Personal details changed successfully!");
+          setModalText("Personal details changed successfully!");
         }
       })
       .catch(function (error) {
@@ -74,7 +164,7 @@ const ShowPersonalData = () => {
   const handleName = (e) => {
     setPersonalData((prevState) => {
       const user = Object.assign(prevState.user);
-      user.name = e.target.value;
+      user.name = e.target.value.trim();
       return { user };
     });
   };
@@ -82,60 +172,108 @@ const ShowPersonalData = () => {
   const handleSurname = (e) => {
     setPersonalData((prevState) => {
       const user = Object.assign(prevState.user);
-      user.surname = e.target.value;
+      user.surname = e.target.value.trim();
       return { user };
     });
   };
 
-  const confirmCancelButtons = (
+  const modifyButtons = (
     <div>
       <DarkButton
-        text="Cancel"
+        text="Modify data"
         className={classes["show-data-button"]}
-        onClick={cancelEdits}
+        onClick={activateDataEdit}
       />
       <DarkButton
-        text="Confirm"
+        text="Modify password"
         className={classes["show-data-button"]}
-        onClick={confirmEdits}
+        onClick={activatePasswordEdit}
       />
     </div>
+  );
+
+  const editPasswordContent = (
+    <form onSubmit={handleChangePassword}>
+      <div>
+        <label htmlFor="old-password">Current password: </label>
+        <input
+          type="password"
+          id="old-password"
+          value={newPasswordObj.newPasswordObj.currentPassword || ""}
+          onChange={(e) => handleNewPasswordObj(e, "currentPassword")}
+        />
+      </div>
+      <br />
+      <div>
+        <label htmlFor="new-password">New password: </label>
+        <input
+          type="password"
+          id="new-password"
+          value={newPasswordObj.newPasswordObj.newPassword || ""}
+          onChange={(e) => handleNewPasswordObj(e, "newPassword")}
+        />
+      </div>
+      <div>
+        <label htmlFor="confirm-new-password">Confirm new password: </label>
+        <input
+          type="password"
+          id="confirm-new-password"
+          value={newPasswordObj.newPasswordObj.confirmPassword || ""}
+          onChange={(e) => handleNewPasswordObj(e, "confirmPassword")}
+        />
+      </div>
+      <ConfirmCancelButtons
+        onCancel={cancelPasswordEdit}
+        onConfirm={confirmPasswordEdit}
+      />
+    </form>
+  );
+
+  const editDataContent = (
+    <form onSubmit={handleFormSubmit}>
+      <div>
+        <label htmlFor="name">Name: </label>
+        <input
+          type="text"
+          id="name"
+          placeholder={personalData ? personalData.user.name : "Your name"}
+          value={personalData ? personalData.user.name : ""}
+          onChange={handleName}
+          disabled={formDisabled}
+        />
+      </div>
+      <div>
+        <label htmlFor="surname">Surname: </label>
+        <input
+          type="text"
+          id="surname"
+          placeholder={personalData ? personalData.user.surname : "Your name"}
+          value={personalData ? personalData.user.surname : ""}
+          onChange={handleSurname}
+          disabled={formDisabled}
+        />
+      </div>
+      {formDisabled ? (
+        modifyButtons
+      ) : (
+        <ConfirmCancelButtons onCancel={cancelEdits} onConfirm={confirmEdits} />
+      )}
+    </form>
   );
 
   return (
     <>
       {showModal && (
-        <UserMessage onClick={() => {setShowModal(false)}} text={modalText} />
+        <UserMessage
+          onClick={() => {
+            setShowModal(false);
+          }}
+          text={modalText}
+        />
       )}
       <div className={classes["personal-data-container"]}>
         <h3>Personal data</h3>
-        <form onSubmit={handleFormSubmit}>
-          <div>
-            <label htmlFor="name">Name: </label>
-            <input
-              type="text"
-              id="name"
-              placeholder={personalData ? personalData.user.name : "Your name"}
-              value={personalData ? personalData.user.name : ""}
-              onChange={handleName}
-              disabled={formDisabled}
-            />
-          </div>
-          <div>
-            <label htmlFor="surname">Surname: </label>
-            <input
-              type="text"
-              id="surname"
-              placeholder={
-                personalData ? personalData.user.surname : "Your name"
-              }
-              value={personalData ? personalData.user.surname : ""}
-              onChange={handleSurname}
-              disabled={formDisabled}
-            />
-          </div>
-          {formDisabled ? modifyButtons : confirmCancelButtons}
-        </form>
+        {showPasswordEdit ? editPasswordContent : editDataContent}
       </div>
     </>
   );
