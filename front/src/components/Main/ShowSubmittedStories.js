@@ -36,6 +36,7 @@ const ShowSubmittedStories = (props) => {
     showFilteredStories = filteredStories.map((story) => {
       return (
         <ShowSingleStory
+          key={`story-${story._id}`}
           story={story}
           editStoryUI={
             <EditStoryUI
