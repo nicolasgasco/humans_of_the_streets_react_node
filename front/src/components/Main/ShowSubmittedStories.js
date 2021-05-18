@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import EditStoryUI from "../UI/EditStoryUI/EditStoryUI";
 import ShowSingleStory from "./ShowSingleStory";
-import "./ShowSubmittedStories.css";
 
 // Container showing stories submitted by a specific user
 const ShowSubmittedStories = (props) => {

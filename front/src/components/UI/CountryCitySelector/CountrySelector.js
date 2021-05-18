@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./CountrySelector.css";
 
 // Selector to filter stories by country
 const CountrySelector = (props) => {

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./CitySelector.css";
 
 // City selector to filter results according to city
 const CitySelector = (props) => {
