@@ -1,41 +1,24 @@
 import "./SignupForm.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import WhiteButton from "../UI/WhiteButton";
 
 const SignupForm = (props) => {
-  const [user, setUser] = useState({
-    user: {
-      name: "",
-      surname: "",
-      email: "",
-      password: "",
-      "confirm-password": "",
-      checked: false,
-    },
-  });
-  const [formValid, setFormValid] = useState(true);
-  const [userRegistered, setUserRegistered] = useState(false);
-
-  const resetSignupForm = () => {
-    setUser({
-      user: {
-        name: "",
-        surname: "",
-        email: "",
-        password: "",
-        "confirm-password": "",
-        checked: false,
-      },
-    });
-  };
+  const nameInputRef = useRef("");
+  const surnameInputRef = useRef("");
+  const emailInputRef = useRef("");
+  const passwordInputRef = useRef("");
+  const confirmPasswordInputRef = useRef("");
+  const checkedInputRef = useRef("");
 
   const submitForm = (e) => {
     e.preventDefault();
     e.target.checkValidity();
 
-    if (user.user.password !== user.user["confirm-password"]) {
-      setFormValid(false);
-      resetSignupForm();
+    console.log(nameInputRef.current.value)
+    if (passwordInputRef.current.value !== confirmPasswordInputRef.current.value) {
+      props.handleModalMessage("The two passwords don't match!");
+      passwordInputRef.current.value = "";
+      confirmPasswordInputRef.current.value = "";
     } else {
       fetch("/api/signin", {
         headers: {
@@ -43,49 +26,32 @@ const SignupForm = (props) => {
         },
         method: "POST",
         body: JSON.stringify({
-          email: user.user.email,
-          name: user.user.name,
-          surname: user.user.surname,
-          password: user.user.password,
+          email: emailInputRef.current.value.trim(),
+          name: nameInputRef.current.value.trim(),
+          surname: surnameInputRef.current.value.trim(),
+          password: confirmPasswordInputRef.current.value,
         }),
       })
         .then((res) => res.json())
         .then((result) => {
           if (result.success) {
-            window.alert("Welcome to Humans of the Streets!");
-            resetSignupForm();
+            props.handleModalMessage("Welcome to Humans of the Streets!");
+
+            emailInputRef.current.value = "";
+            nameInputRef.current.value = "";
+            surnameInputRef.current.value = "";
+            passwordInputRef.current.value = "";
+            confirmPasswordInputRef.current.value = "";
           } else {
-            setUserRegistered(true);
+            props.handleModalMessage("The user is already registered!");          
           }
         })
         .catch(function (error) {
           console.log("An error occurred: " + error.message);
+          props.handleModalMessage("Ops! Something went wrong :(");          
         });
     }
   };
-
-  const handleUser = (value, field) => {
-    setFormValid(true);
-    setUserRegistered(false);
-
-    setUser((prevState) => {
-      let user = Object.assign({}, prevState.user);
-      user[field] = value;
-      return { user };
-    });
-  };
-
-  const showPasswordsNoMatch = (
-    <div>
-      <p class="red-text">The two passwords don't match!</p>
-    </div>
-  );
-
-  const showUserAlreadyRegistered = (
-    <div>
-      <p class="red-text">The user is already registered!</p>
-    </div>
-  );
 
   return (
     <div className="signup-container">
@@ -99,10 +65,7 @@ const SignupForm = (props) => {
               name="name"
               id="name"
               required
-              value={user.user.name}
-              onChange={(e) => {
-                handleUser(e.target.value, "name");
-              }}
+              ref={nameInputRef}
             />
           </div>
           <div>
@@ -113,10 +76,8 @@ const SignupForm = (props) => {
               name="surname"
               id="surname"
               required
-              value={user.user.surname}
-              onChange={(e) => {
-                handleUser(e.target.value, "surname");
-              }}
+              ref={surnameInputRef}
+
             />
           </div>
         </div>
@@ -129,10 +90,7 @@ const SignupForm = (props) => {
               name="email"
               id="email"
               required
-              value={user.user.email}
-              onChange={(e) => {
-                handleUser(e.target.value, "email");
-              }}
+              ref={emailInputRef}
             />
           </div>
         </div>
@@ -141,51 +99,38 @@ const SignupForm = (props) => {
             <label htmlFor="password">Password: </label>
             <br />
             <input
-              className={` ${!formValid ? "invalid" : ""}`}
               type="password"
               name="password"
               id="password"
               required
-              value={user.user.password}
-              onChange={(e) => {
-                handleUser(e.target.value, "password");
-              }}
+              ref={passwordInputRef}
             />
           </div>
           <div>
             <label htmlFor="confirm-password">Confirm password: </label>
             <br />
             <input
-              className={` ${!formValid ? "invalid" : ""}`}
               type="password"
               name="confirm-password"
               id="confirm-password"
               required
-              value={user.user["confirm-password"]}
-              onChange={(e) => {
-                handleUser(e.target.value, "confirm-password");
-              }}
+              ref={confirmPasswordInputRef}
             />
           </div>
         </div>
         <div>
-          <p>
+          <p className="disclaimer-text">
             <input
               className="checkbox"
               type="checkbox"
               required
-              checked={user.user.checked}
-              onChange={(e) => {
-                handleUser(e.target.value, "checked");
-              }}
+              ref={checkedInputRef}
             />
             By signing up, you accept our Privacy Agreement.
           </p>
         </div>
-        <WhiteButton type="submit" className="login-button" text="SIgn up" />
+        <WhiteButton type="submit" className="signup-button" text="Sign up" />
       </form>
-      {!formValid ? showPasswordsNoMatch : null}
-      {userRegistered ? showUserAlreadyRegistered : null}
     </div>
   );
 };

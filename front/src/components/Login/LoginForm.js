@@ -2,7 +2,6 @@ import "./LoginForm.css";
 import WhiteButton from "../UI/WhiteButton";
 import { useState } from "react";
 import { Redirect } from "react-router";
-import UserMessage from "../UI/UserMessage";
 
 const LoginForm = (props) => {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -58,6 +57,7 @@ const LoginForm = (props) => {
             type="email"
             name="username"
             id="username"
+            autoComplete="email"
             required
             value={user.email}
             onChange={(e) => {
@@ -71,6 +71,7 @@ const LoginForm = (props) => {
             type="password"
             name="password"
             id="password"
+            autoComplete="current-password"
             required
             value={user.password}
             onChange={(e) => {

@@ -52,22 +52,35 @@
   font-weight: bold;
 }
 
-.invalid {
+/* .invalid {
   border-bottom: 3px red solid !important;
   background-color: thistle !important;
 }
 
 .red-text {
   color: red;
-}
+} */
 
 .checkbox {
   width: auto !important;
   margin-right: 1rem;
 }
 
+.signup-button, .disclaimer-text {
+  align-self: center;
+}
+
+.red-text {
+  color: red;
+}
+
 @media only screen and (min-width: 600px) {
-  .signup-container p {
-    font-size: larger;
+  .signup-container p,.signup-container label, .signup-container input, .signup-container button {
+    font-size: x-large;
+  }
+
+  .signup-button {
+    align-self: flex-start;
+    margin-left: 1.2rem;
   }
 }
