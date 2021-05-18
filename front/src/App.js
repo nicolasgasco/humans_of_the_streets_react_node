@@ -72,7 +72,9 @@ const App = () => {
 
   const toggleSignupFormVisibility = () => {
     setShowSignup(!showSignup);
-    setShowLogin(!showLogin);
+    if (showLogin) {
+      setShowLogin(false);
+    }
   };
 
   const handleModalMessage = (text) => {
@@ -147,7 +149,7 @@ const App = () => {
             />
           ) : null}
           {showSignup ? <SignupForm handleModalMessage={handleModalMessage} /> : null}
-          <HomeContent />
+          <HomeContent toggleSignupFormVisibility={toggleSignupFormVisibility} />
         </Route>
 
         <Route exact path="/browse">
