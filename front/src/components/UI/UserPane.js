@@ -1,10 +1,9 @@
-import "./UserPane.css";
+import classes from './UserPane.module.css'
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const UserPane = (props) => {
   const [paneVisiblity, setPaneVisiblity] = useState(false);
-  console.log(props.userPaneVisibility);
 
   useEffect(() => {
     setPaneVisiblity(props.userPaneVisibility);
@@ -13,7 +12,11 @@ const UserPane = (props) => {
   const showLinks = props.linksToShow.map((link, index) => {
     return (
       <li key={`link-${index}`}>
-        <Link to={link[1]} className="user-pane-link" onClick={props.toggleUserPaneVisibility} >
+        <Link
+          to={link[1]}
+          className={classes["user-pane-link"]}
+          onClick={props.toggleUserPaneVisibility}
+        >
           {link[0]}
         </Link>
       </li>
@@ -23,12 +26,19 @@ const UserPane = (props) => {
   return (
     <>
       <section
-        className="user-pane"
+        className={classes["user-pane"]}
         style={{ display: `${paneVisiblity ? "block" : "none"}` }}
       >
-        <ul>{showLinks}</ul>
+        <ul>
+          {showLinks}
+          <br/>
+          <li>
+            <Link to="/" onClick={props.logOutUser}>
+              Logout
+            </Link>
+          </li>
+        </ul>
       </section>
-
     </>
   );
 };
