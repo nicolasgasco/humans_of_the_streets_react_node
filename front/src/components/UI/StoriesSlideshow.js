@@ -20,7 +20,7 @@ const StoriesSlideshow = () => {
     showCarouselItems = (
       <Carousel.Item key={"loading"}>
         <img
-          className={classes["d-block w-100 carousel-img"]}
+          className={`${classes["d-block w-100"]} ${classes["carousel-img"]}`}
           src={LoadingGif}
           alt="Loading animation"
         />
@@ -34,7 +34,7 @@ const StoriesSlideshow = () => {
       return (
         <Carousel.Item key={story._id}>
           <img
-            className={classes["d-block w-100 carousel-img"]}
+            className={`${classes["d-block w-100"]} ${classes["carousel-img"]}`}
             src={story.img}
             alt="First slide"
           />
