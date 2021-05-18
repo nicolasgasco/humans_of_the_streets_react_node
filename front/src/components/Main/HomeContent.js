@@ -4,9 +4,10 @@ import MainWrapper from "../UI/Wrappers/MainWrapper";
 import StandardButton from "../UI/StandardButton";
 import { Link } from "react-router-dom";
 import StoriesSlideshow from "../UI/StoriesSlideshow";
+import DarkButton from "../UI/DarkButton";
 
 // Text content shown on home
-const HomeContent = () => {
+const HomeContent = (props) => {
   return (
     <MainWrapper>
       <section className="home-content__container">
@@ -21,7 +22,7 @@ const HomeContent = () => {
               people around the world.
             </p>
           </div>
-          <StandardButton to="/browse/" text="Start&nbsp;browsing" className="home-content__button"/>
+          <DarkButton type="button" onClick={props.toggleSignupFormVisibility} text="Start&nbsp;helping" className="home-content__button"/>
         </div>
         <StoriesSlideshow />
       </section>

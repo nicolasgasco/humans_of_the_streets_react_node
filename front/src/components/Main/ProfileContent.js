@@ -18,7 +18,7 @@ const ProfileContent = (props) => {
     },
     { title: "Edit user data", body: <ShowPersonalData /> },
     {
-      title: "Edit submitted stories",
+      title: "Delete submitted stories",
       body: (
         <ShowSubmittedStories
           handleModalMessage={props.handleModalMessage}
