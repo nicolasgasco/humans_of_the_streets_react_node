@@ -9,7 +9,7 @@
   justify-content: space-around;
   align-items: center;
 
-  border-bottom: 3px black ;
+  border-bottom: 3px black;
 
   /* animation: 0.8s fadeIn;
   animation-fill-mode: forwards;
@@ -53,4 +53,18 @@
 .main-nav * {
   font-weight: bold;
   font-size: large;
+}
+
+.main-nav div, .main-nav button {
+  padding: 1rem 2rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .main-nav * {
+    font-size: x-large;
+  }
+
+  .main-nav div, .main-nav button {
+    padding: 1.5rem 4rem;
+  }
 }

@@ -1,5 +1,4 @@
 .main-header {
-  outline: 1px red solid;
   margin: 0;
   /* height: 50vh; */
   height: calc(var(--vh, 1vh) * 100);
@@ -26,6 +25,9 @@
 
 @media only screen and (min-width: 600px) {
   .main-header {
+    margin: calc(var(--vh, 1vh) * 2);
+    margin-bottom: 0px;
+    height: calc(var(--vh, 1vh) * 98);
   }
 
   .picture-container {
@@ -33,8 +35,7 @@
     flex-wrap: nowrap;
     align-items: baseline;
 
-    max-height: 96vh;
-
+    height: calc(var(--vh, 1vh) * 88);
     margin-bottom: 0;
   }
 }

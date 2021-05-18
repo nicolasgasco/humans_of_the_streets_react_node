@@ -6,12 +6,12 @@ const AnimatedLogo = () => {
     <div className="animated-title">
       <div className="text-top">
         <div>
-          <span>Humans</span>
-          <span><span style={{display: "inline", fontSize: "2rem", "color" : "black"}}>of the</span> Streets</span>
+          <span className="main-text">Humans</span>
+          <span className="main-text"><span className="of-the-span">of the</span> Streets</span>
         </div>
       </div>
       <div className="text-bottom">
-        <div ><p style={{ fontSize: "1.4rem", margin: "0" }}>Read their stories...</p></div>
+        <div ><p className="read-stories-sub">Read their stories...</p></div>
       </div>
     </div>
   );

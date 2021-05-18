@@ -1,63 +1,116 @@
+/* Animated title */
+@import url("https://fonts.googleapis.com/css?family=Roboto:700");
+@keyframes showTopText {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes showBottomText {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
 
-  /* Animated title */
-  @import url('https://fonts.googleapis.com/css?family=Roboto:700');
-  @keyframes showTopText {
-    0% { transform: translate3d(0, 100%, 0); }
-    40%, 60% { transform: translate3d(0, 50%, 0); }
-    100% { transform: translate3d(0, 0, 0); }
+.animated-title {
+  color: rgb(29, 29, 29);
+  font-family: Roboto, Arial, sans-serif;
+  letter-spacing: 2px;
+  height: 90vmin;
+  left: 50%;
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vmin;
+}
+.animated-title > div {
+  height: 50%;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+.animated-title > div div {
+  font-size: 12vmin;
+  padding: 2vmin 0;
+  position: absolute;
+}
+.animated-title > div div span {
+  display: block;
+}
+.animated-title > div.text-top {
+  border-bottom: 1vmin solid #000;
+  top: 0;
+}
+.animated-title > div.text-top div {
+  animation: showTopText 1s;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  bottom: 0;
+  transform: translate(0, 100%);
+}
+.animated-title > div.text-top div span:first-child {
+  color: #ffffff;
+}
+.animated-title > div.text-bottom {
+  bottom: 0;
+}
+.animated-title > div.text-bottom div {
+  animation: showBottomText 0.5s;
+  animation-delay: 1.75s;
+  animation-fill-mode: forwards;
+  top: 0;
+  transform: translate(0, -100%);
+}
+
+.text-top {
+  line-height: 3rem;
+}
+
+div.text-bottom {
+}
+
+div.animated-title {
+  height: 60vh;
+  margin-top: -5rem;
+}
+
+.of-the-span {
+  display: inline !important;
+  font-size: 2.2rem;
+  color: black !important;
+}
+
+.read-stories-sub {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+@media only screen and (min-width: 600px) {
+  .text-top {
+    line-height: 5rem;
   }
-  @keyframes showBottomText {
-    0% { transform: translate3d(0, -100%, 0); }
-    100% { transform: translate3d(0, 0, 0); }
+
+  .of-the-span {
+    font-size: 4rem;
+    color: black !important;
   }
-  
-  .animated-title {
-    color: rgb(29, 29, 29);
-    font-family: Roboto, Arial, sans-serif;
-    letter-spacing: 2px;
-    height: 90vmin;
-    left: 50%;
-    text-align: left;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 90vmin;
+
+  .read-stories-sub {
+    font-size: 2.5rem;
+    margin: 0;
   }
-  .animated-title > div {
-    height: 50%;
-    overflow: hidden;
-    position: absolute;
-    width: 100%;
+
+  .main-text {
+    font-size: 5rem;
   }
-  .animated-title > div div {
-    font-size: 12vmin;
-    padding: 2vmin 0;
-    position: absolute;
-  }
-  .animated-title > div div span {
-    display: block;
-  }
-  .animated-title > div.text-top {
-    border-bottom: 1vmin solid #000;
-    top: 0;
-  }
-  .animated-title > div.text-top div {
-    animation: showTopText 1s;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-    bottom: 0;
-    transform: translate(0, 100%);
-  }
-  .animated-title > div.text-top div span:first-child {
-    color: #ffffff;
-  }
-  .animated-title > div.text-bottom {
-    bottom: 0;
-  }
-  .animated-title > div.text-bottom div {
-    animation: showBottomText 0.5s;
-    animation-delay: 1.75s;
-    animation-fill-mode: forwards;
-    top: 0;
-    transform: translate(0, -100%);
-  }  
+}

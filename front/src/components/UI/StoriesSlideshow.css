@@ -11,19 +11,17 @@
     padding: 1rem 1.5rem;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 1150px) {
   .carousel-container {
     width: 60%;
     display: inline-block !important;
   }
-
+  
   .carousel-img {
     width: 100% !important;
-    height: 595px;
+    height: 750px;
 
     object-fit: cover;
     object-position: center;
-
-    filter: ;
   }
 }
