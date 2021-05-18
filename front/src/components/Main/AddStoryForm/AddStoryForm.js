@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Card from "react-bootstrap/esm/Card";
 import DarkButton from "../../UI/DarkButton";
 import WhiteButton from "../../UI/WhiteButton";
 import ColoredWrapper from "../../UI/Wrappers/ColoredWrapper";
@@ -105,7 +106,7 @@ const AddStoryForm = (props) => {
   }
 
   return (
-    <div>
+    <section>
       <h2>Add a new story</h2>
       <div className="addstory-container">
         <h3>Interviewee info:</h3>
@@ -118,6 +119,7 @@ const AddStoryForm = (props) => {
               name="name"
               id="name"
               required
+              autoComplete="given-name"
               value={story.name}
               onChange={(e) => {
                 handleStory(e.target.value, "name");
@@ -131,12 +133,14 @@ const AddStoryForm = (props) => {
               name="surname"
               id="surname"
               required
+              autoComplete="family-name"
               value={story.surname}
               onChange={(e) => {
                 handleStory(e.target.value, "surname");
               }}
             />
           </div>
+          <br />
           <div className="shorter-input">
             <label htmlFor="age">Age: </label>
             <input
@@ -159,6 +163,7 @@ const AddStoryForm = (props) => {
               name="gender"
               id="gender"
               required
+              autoComplete="sex"
               value={story.gender}
               onChange={(e) => {
                 handleStory(e.target.value, "gender");
@@ -177,6 +182,7 @@ const AddStoryForm = (props) => {
               name="email"
               id="email"
               required
+              autoComplete="email"
               value={story.name}
               onChange={(e) => {
                 handleStory(e.target.value, "email");
@@ -190,6 +196,7 @@ const AddStoryForm = (props) => {
               name="telephone"
               id="telephone"
               required
+              autoComplete="tel"
               value={story.telephone_number}
               onChange={(e) => {
                 handleStory(e.target.value, "telephone_number");
@@ -204,6 +211,7 @@ const AddStoryForm = (props) => {
               name="from-city"
               id="from-city"
               required
+              autoComplete="address-level2"
               value={story.from_city}
               onChange={(e) => {
                 handleStory(e.target.value, "from_city");
@@ -217,6 +225,7 @@ const AddStoryForm = (props) => {
               name="from-country"
               id="from-country"
               required
+              autoComplete="country"
               value={story.from_city}
               onChange={(e) => {
                 handleStory(e.target.value, "from_country");
@@ -231,6 +240,7 @@ const AddStoryForm = (props) => {
               name="current-city"
               id="current-city"
               required
+              autoComplete="address-level2"
               value={story.current_city}
               onChange={(e) => {
                 handleStory(e.target.value, "current_city");
@@ -244,6 +254,7 @@ const AddStoryForm = (props) => {
               name="current_country"
               id="current_country"
               required
+              autoComplete="country"
               value={story.current_country}
               onChange={(e) => {
                 handleStory(e.target.value, "current_country");
@@ -311,6 +322,7 @@ const AddStoryForm = (props) => {
               id="img"
               rows="2"
               required
+              autoComplete="photo"
               value={story.img}
               onChange={(e) => {
                 handleStory(e.target.value, "img");
@@ -352,7 +364,7 @@ const AddStoryForm = (props) => {
           />
         </form>
       </div>
-    </div>
+    </ section>
   );
 };
 
