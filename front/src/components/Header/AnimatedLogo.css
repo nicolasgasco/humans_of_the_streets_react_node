@@ -1,22 +1,59 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 /* Animated title */
 @import url("https://fonts.googleapis.com/css?family=Roboto:700");
-@keyframes showTopText {
+@-webkit-keyframes showTopText {
   0% {
+    -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
   40%,
   60% {
+    -webkit-transform: translate3d(0, 50%, 0);
     transform: translate3d(0, 50%, 0);
   }
   100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes showTopText {
+  0% {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+  40%,
+  60% {
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes showBottomText {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
 @keyframes showBottomText {
   0% {
+    -webkit-transform: translate3d(0, -100%, 0);
     transform: translate3d(0, -100%, 0);
   }
   100% {
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
 }
@@ -30,6 +67,8 @@
   text-align: left;
   position: absolute;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   width: 90vmin;
 }
@@ -52,10 +91,15 @@
   top: 0;
 }
 .animated-title > div.text-top div {
+  -webkit-animation: showTopText 1s;
   animation: showTopText 1s;
+  -webkit-animation-delay: 0.5s;
   animation-delay: 0.5s;
+  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   bottom: 0;
+  -webkit-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
   transform: translate(0, 100%);
 }
 .animated-title > div.text-top div span:first-child {
@@ -65,10 +109,15 @@
   bottom: 0;
 }
 .animated-title > div.text-bottom div {
+  -webkit-animation: showBottomText 0.5s;
   animation: showBottomText 0.5s;
+  -webkit-animation-delay: 1.75s;
   animation-delay: 1.75s;
+  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   top: 0;
+  -webkit-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
   transform: translate(0, -100%);
 }
 

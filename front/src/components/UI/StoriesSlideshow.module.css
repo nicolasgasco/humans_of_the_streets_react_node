@@ -1,0 +1,37 @@
+.carousel-container {
+  display: none;
+}
+
+.carousel-caption {
+  color: black;
+  background-color: #a4c7bed7;
+  border-radius: 20px !important;
+
+  padding: 1rem 1.5rem;
+}
+
+/* Backdrop blur only if supported */
+@supports (
+  (-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))
+) {
+  .carousel-caption {
+    background-color: #a4c7be9b;
+    backdrop-filter: blur(12px);
+  }
+
+}
+
+@media only screen and (min-width: 1150px) {
+  .carousel-container {
+    width: 60%;
+    display: inline-block !important;
+  }
+
+  .carousel-img {
+    width: 100% !important;
+    height: 750px;
+
+    object-fit: cover;
+    object-position: center;
+  }
+}

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .main-logo {
   font-family: "Playfair Display SC", serif;
 
@@ -23,13 +30,21 @@
 }
 .wrapper {
   /*This part is important for centering*/
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
 .typing-demo {
   width: 22ch;
+  -webkit-animation: typing 2.5s steps(22),
+    blink 0.5s step-end infinite alternate;
   animation: typing 2.5s steps(22), blink 0.5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
@@ -38,9 +53,21 @@
   font-size: 2em;
 }
 
+@-webkit-keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
 @keyframes typing {
   from {
     width: 0;
+  }
+}
+
+@-webkit-keyframes blink {
+  50% {
+    border-color: transparent;
   }
 }
 
@@ -57,11 +84,13 @@
     font-size: 2.5rem;
     line-height: 1;
     letter-spacing: 2px;
-    
+
     color: white;
   }
 
   .main-logo:hover {
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
     transform: scale(1.02);
   }
 }

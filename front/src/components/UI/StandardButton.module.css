@@ -1,4 +1,13 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .standard-button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     border: 5px white solid;
 

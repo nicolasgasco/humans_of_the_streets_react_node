@@ -1,15 +1,25 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .grid-item {
   margin-bottom: 2rem;
 
   border-radius: 0.4rem;
   overflow: hidden;
+  -webkit-box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
 }
 
 @media only screen and (min-width: 600px) {
   .grid-item:hover {
-    transform: translateY(-0.5%);
+    -webkit-box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
     box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.2);
   }
 }

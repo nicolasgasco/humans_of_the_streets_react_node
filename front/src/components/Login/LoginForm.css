@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .login-container {
   width: 100%;
   min-height: 30vh;
@@ -7,15 +14,27 @@
 }
 
 .login-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
-  align-items: baseline;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: center;
   align-content: center;
 }
 
+.login-form label {
+  margin-right: 0.8rem;
+}
+
 .login-form input {
-  margin-left: 0.8rem;
+  margin-bottom: 1.5rem;
 
   outline: 0;
   border: 0;
@@ -45,6 +64,26 @@
   text-align: center;
 }
 
+::-webkit-input-placeholder {
+  color: rgb(88, 88, 88);
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: rgb(88, 88, 88);
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: rgb(88, 88, 88);
+  opacity: 1;
+}
+
+::-ms-input-placeholder {
+  color: rgb(88, 88, 88);
+  opacity: 1;
+}
+
 ::placeholder {
   color: rgb(88, 88, 88);
   opacity: 1;
@@ -61,14 +100,16 @@
   font-weight: bold;
 }
 
-
 @media only screen and (min-width: 600px) {
-  .login-container label, .login-container input, .login-container p {
+  .login-container label,
+  .login-container input,
+  .login-container p {
     font-size: x-large;
   }
 
   .login-container button {
     font-size: x-large;
+
+    margin-left: 1rem;
   }
-  
 }

@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 footer {
   width: 100%;
   min-height: 3vh;
@@ -5,17 +12,26 @@ footer {
   margin-top: auto;
   padding: 1vh;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
   background-color: #606664;
 }
 
 footer small {
-	max-width: 40%;
-	font-size: xx-small;
+  max-width: 40%;
+  font-size: xx-small;
 }
 
 footer,
@@ -32,10 +48,8 @@ footer a:hover {
   content: " ";
 }
 
-
 @media only screen and (min-width: 600px) {
   footer small {
     font-size: x-small;
   }
-  
 }

@@ -1,20 +1,58 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .main-nav {
   width: 100%;
   padding: 1rem;
 
   height: 10vh;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
+  -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 
-  border-bottom: 3px black;
+  -webkit-box-shadow: 0px 15px 15px -15px rgba(165, 165, 165, 0.418);
+
+  box-shadow: 0px 15px 15px -15px rgba(165, 165, 165, 0.418);
 
   /* animation: 0.8s fadeIn;
   animation-fill-mode: forwards;
   animation-delay: 0s;
   opacity: 0; */
+}
+
+@-webkit-keyframes fadeIn {
+  50% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
@@ -55,7 +93,8 @@
   font-size: large;
 }
 
-.main-nav div, .main-nav button {
+.main-nav div,
+.main-nav button {
   padding: 1rem 2rem;
 }
 
@@ -64,7 +103,8 @@
     font-size: x-large;
   }
 
-  .main-nav div, .main-nav button {
+  .main-nav div,
+  .main-nav button {
     padding: 1.5rem 4rem;
   }
 }

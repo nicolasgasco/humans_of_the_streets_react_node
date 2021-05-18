@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 .story-submitted {
 }
 
@@ -18,7 +25,9 @@
   margin: 0;
 }
 
-.addstory-container input, .addstory-container textarea, .addstory-container select {
+.addstory-container input,
+.addstory-container textarea,
+.addstory-container select {
   width: 100%;
 
   border: 0;
@@ -28,17 +37,18 @@
 }
 
 .shorter-input {
-    display: inline-block;
+  display: inline-block;
 
-    
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 
-.shorter-input input, .shorter-input select {
-    width: fit-content;
+.shorter-input input,
+.shorter-input select {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .newstory-button {
-    outline: 1px red solid;
-    margin: 2rem 0;
+  margin: 2rem 0;
 }
