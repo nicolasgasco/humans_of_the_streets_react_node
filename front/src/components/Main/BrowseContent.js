@@ -46,6 +46,7 @@ const BrowseContent = (props) => {
         ]}
         userPaneVisibility={props.showUserPane}
         toggleUserPaneVisibility={props.toggleUserPaneVisibility}
+        logOutUser={props.logOutUser}
       />
       <MainWrapper>
         <h2>Read their stories</h2>
