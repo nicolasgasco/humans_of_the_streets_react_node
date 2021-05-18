@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import "./ProfileNav.css";
+import classes from "./ProfileNav.module.css";
 
 const ProfileNav = (props) => {
   return (
-    <nav className="profile-nav">
+    <nav className={classes["profile-nav"]}>
       <Link to="/browse/">
         <div>Browse stories</div>
       </Link>
@@ -11,7 +11,7 @@ const ProfileNav = (props) => {
         <div>Add new story</div>
       </Link>
       <Link to="/" onClick={props.logOutUser}>
-        <div className="accented-button">Logout</div>
+        <div className={classes["accented-button"]}>Logout</div>
       </Link>
     </nav>
   );
