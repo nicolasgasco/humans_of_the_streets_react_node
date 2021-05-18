@@ -38,7 +38,7 @@ const LoginForm = (props) => {
 
   const handleUsername = (username) => {
     setUser((prevData) => {
-      return { ...prevData, email: username };
+      return { ...prevData, email: username.trim() };
     });
   };
 
@@ -52,32 +52,34 @@ const LoginForm = (props) => {
     <div className="login-container">
       <form className="login-form" onSubmit={submitForm}>
         <div>
-          <label htmlFor="username">Username: </label>
-          <input
-            type="email"
-            name="username"
-            id="username"
-            autoComplete="email"
-            required
-            value={user.email}
-            onChange={(e) => {
-              handleUsername(e.target.value);
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password: </label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            autoComplete="current-password"
-            required
-            value={user.password}
-            onChange={(e) => {
-              handlePassword(e.target.value);
-            }}
-          />
+          <div>
+            <label htmlFor="username">Username: </label>
+            <input
+              type="email"
+              name="username"
+              id="username"
+              autoComplete="email"
+              required
+              value={user.email}
+              onChange={(e) => {
+                handleUsername(e.target.value);
+              }}
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password: </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              autoComplete="current-password"
+              required
+              value={user.password}
+              onChange={(e) => {
+                handlePassword(e.target.value);
+              }}
+            />
+          </div>
         </div>
         <WhiteButton type="submit" className="login-button" text="Login" />
       </form>

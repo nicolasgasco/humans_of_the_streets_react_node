@@ -65,6 +65,7 @@ const SignupForm = (props) => {
               name="name"
               id="name"
               required
+              autoComplete="given-name"
               ref={nameInputRef}
             />
           </div>
@@ -76,6 +77,7 @@ const SignupForm = (props) => {
               name="surname"
               id="surname"
               required
+              autoComplete="family-name"
               ref={surnameInputRef}
 
             />
@@ -90,6 +92,7 @@ const SignupForm = (props) => {
               name="email"
               id="email"
               required
+              autoComplete="email"
               ref={emailInputRef}
             />
           </div>
@@ -103,6 +106,7 @@ const SignupForm = (props) => {
               name="password"
               id="password"
               required
+              autoComplete="new-password"
               ref={passwordInputRef}
             />
           </div>
@@ -114,6 +118,7 @@ const SignupForm = (props) => {
               name="confirm-password"
               id="confirm-password"
               required
+              autoComplete="new-password"
               ref={confirmPasswordInputRef}
             />
           </div>

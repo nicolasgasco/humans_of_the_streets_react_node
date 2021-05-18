@@ -126,8 +126,6 @@ const App = () => {
       });
   }
 
-  console.log(UserMessage)
-
   return (
     <BrowserRouter>
       <Switch>
@@ -148,7 +146,7 @@ const App = () => {
               handleModalMessage={handleModalMessage}
             />
           ) : null}
-          {showSignup ? <SignupForm /> : null}
+          {showSignup ? <SignupForm handleModalMessage={handleModalMessage} /> : null}
           <HomeContent />
         </Route>
 
@@ -160,6 +158,7 @@ const App = () => {
           <BrowseContent
             showUserPane={showUserPane}
             toggleUserPaneVisibility={toggleUserPaneVisibility}
+            logOutUser={logOutUser}
           />
         </Route>
 
@@ -195,6 +194,7 @@ const App = () => {
           <AddContent
             showUserPane={showUserPane}
             toggleUserPaneVisibility={toggleUserPaneVisibility}
+            logOutUser={logOutUser}
           />
         </Route>
       </Switch>
