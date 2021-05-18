@@ -14,6 +14,7 @@ const AddContent = (props) => {
         ]}
         userPaneVisibility={props.showUserPane}
         toggleUserPaneVisibility={props.toggleUserPaneVisibility}
+        logOutUser={props.logOutUser}
       />
       <MainWrapper>
         <AddStoryForm />
