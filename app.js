@@ -101,15 +101,6 @@ passport.deserializeUser(function (email, done) {
     });
 });
 
-// Redirect all requests to index.html
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, "./build/index.hmtl"), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
-
 
 // Route to check if user is logged
 app.get("/api/login/check", (req, res) => {
@@ -189,6 +180,15 @@ app.put("/api/logout", (req, res) => {
     res.send({ loggedOut: true, msg: "Logout successful" });
   });
 });
+
+// Redirect all requests to index.html
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, "./build/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));
