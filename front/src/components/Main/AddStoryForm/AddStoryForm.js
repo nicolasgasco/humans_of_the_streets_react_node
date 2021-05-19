@@ -33,33 +33,33 @@ const AddStoryForm = (props) => {
 
     story = story.story;
     const newStory = {
-      name: story.name,
-      surname: story.surname,
+      name: story.name.trim(),
+      surname: story.surname.trim(),
       age: story.age,
       gender: story.gender,
       where_to_find: {
-        spot: story.spot,
+        spot: story.spot.trim(),
       },
       from: {
-        city: story.from_city,
-        country: story.from_country,
+        city: story.from_city.trim(),
+        country: story.from_country.trim(),
       },
       currently_in: {
-        city: story.current_city,
-        country: story.current_country,
+        city: story.current_city.trim(),
+        country: story.current_country.trim(),
       },
       interview: {
-        story: story.story,
-        advice: story.advice,
-        dream: story.dream,
+        story: story.story.trim(),
+        advice: story.advice.trim(),
+        dream: story.dream.trim(),
       },
       contact: {
-        email: story.email,
-        telephone_number: story.telephone_number,
+        email: story.email.trim(),
+        telephone_number: story.telephone_number.trim(),
         share_contact: story.share_contact,
       },
-      approved: "false",
-      img: story.img,
+      img: story.img.trim(),
+      submittedBy: sessionStorage.getItem("user")
     };
 
     fetch("/api/humans/new", {
