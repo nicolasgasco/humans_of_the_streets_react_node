@@ -7,6 +7,7 @@ router.get("/countries", (req, res) => {
 
   db.collection("humans").distinct(
     "currently_in.country",
+    { approved: true },
     (err, allCountries) => {
       if (err !== null) {
         res.send(err);
@@ -25,17 +26,20 @@ router.get("/countries", (req, res) => {
 router.get("/cities", (req, res) => {
   let db = req.app.locals.db;
 
-  db.collection("humans").distinct("currently_in.city", (err, allCities) => {
-    if (err !== null) {
-      res.send(err);
-    }
+  db.collection("humans").distinct(
+    "currently_in.city",
+    { approved: true },
+    (err, allCities) => {
+      if (err !== null) {
+        res.send(err);
+      }
 
-    if (allCities.length === 0) {
-      res.send({ msg: "Database is empty" });
+      if (allCities.length === 0) {
+        res.send({ msg: "Database is empty" });
+      }
+      res.send({ results: allCities });
     }
-
-    res.send({ results: allCities });
-  });
+  );
 });
 
 // Get all unique results for cities filtering per country
@@ -46,7 +50,7 @@ router.get("/cities/:country", (req, res) => {
 
   db.collection("humans").distinct(
     "currently_in.city",
-    { "currently_in.country": country },
+    {  approved: true, "currently_in.country": country },
     (err, allCities) => {
       if (err !== null) {
         res.send(err);
