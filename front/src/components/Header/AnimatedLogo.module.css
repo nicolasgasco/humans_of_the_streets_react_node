@@ -144,20 +144,20 @@ div.animated-title {
 
 @media only screen and (min-width: 600px) {
   .text-top {
-    line-height: 5rem;
+    line-height: 6vw;
   }
 
   .of-the-span {
-    font-size: 4rem;
+    font-size: 4.5vw;
     color: black !important;
   }
 
   .read-stories-sub {
-    font-size: 2.5rem;
+    font-size: 3vw;
     margin: 0;
   }
 
   .main-text {
-    font-size: 5rem;
+    font-size: 6vw;
   }
 }
