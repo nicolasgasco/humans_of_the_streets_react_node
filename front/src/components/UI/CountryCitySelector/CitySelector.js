@@ -6,7 +6,6 @@ const CitySelector = (props) => {
 
   // Get all cities of a specific country
   useEffect(() => {
-    console.log(props.country);
     if (props.country !== "all" && props.country !== null) {
       fetch(`/api/locations/cities/${props.country}`)
         .then((res) => res.json())

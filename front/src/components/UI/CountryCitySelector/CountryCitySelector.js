@@ -10,7 +10,6 @@ const CountryCitySelector = (props) => {
 
   // Sending information up
   useEffect(() => {
-    console.log(currentCity)
     props.handleSearchLocale({ country: currentCountry, city: currentCity });
   }, [currentCountry, currentCity]);
 
