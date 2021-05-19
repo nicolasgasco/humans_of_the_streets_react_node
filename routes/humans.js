@@ -132,6 +132,7 @@ router.post("/new", (req, res) => {
   const newStory = req.body;
 
   newStory["submission_date"] = new Date();
+  newObject["approved"] = false;
 
   db.collection("humans").insertOne(newStory, (err, result) => {
     if (err !== null) {
