@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./ShowPersonalData.module.css";
 import DarkButton from "../UI/DarkButton";
 import UserMessage from "../UI/UserMessage";
@@ -6,18 +6,17 @@ import ConfirmCancelButtons from "./ConfirmCancelButtons";
 
 const ShowPersonalData = () => {
   const [userId, setUserId] = useState(sessionStorage.getItem("user"));
+  const [oldPersonalData, setOldPersonalData] = useState();
   const [personalData, setPersonalData] = useState(() => {
     fetch(`/api/users/id/${userId}`)
       .then((res) => res.json())
       .then((result) => {
         setPersonalData({ user: result.results });
-        setOldPersonalData(result.results)
       })
       .catch(function (error) {
         console.log("An error occurred: " + error.message);
       });
   });
-  const [oldPersonalData, setOldPersonalData] = useState();
   const [formDisabled, setFormDisabled] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showPasswordEdit, setShowPasswordEdit] = useState(false);
@@ -129,11 +128,14 @@ const ShowPersonalData = () => {
   };
 
   const confirmEdits = () => {
-    if (oldPersonalData.name === personalData.user.name && oldPersonalData.surname === personalData.user.surname) {
-      setShowModal(true);
-      setModalText("Please change your data!");
-      return;
-    }
+    // console.log(personalData.user, oldPersonalData)
+    // if (oldPersonalData.name === personalData.user.name && oldPersonalData.surname === personalData.user.surname) {
+    //   setShowModal(true);
+    //   setModalText("Please change your data!");
+    //   setFormDisabled(true);
+    //   return;
+    // }
+    console.log(oldPersonalData)
     fetch("/api/users/update/data", {
       headers: {
         "Content-Type": "application/json",
