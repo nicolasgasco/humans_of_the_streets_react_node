@@ -1,8 +1,13 @@
+.country-city-selector {
+    margin-bottom: 1rem;
+}
+
 .country-city-selector select {
     border: 0;
     background: transparent;
-    border-bottom: 3px #F3F7F5 solid;
+    border-bottom: 4px #606664 solid;
 }
 .country-city-selector label {
     font-weight: bold;
+    margin-right: 0.5rem;
 }

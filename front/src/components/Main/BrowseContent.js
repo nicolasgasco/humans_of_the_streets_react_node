@@ -3,6 +3,7 @@ import CountryCitySelector from "../UI/CountryCitySelector/CountryCitySelector";
 import UserPane from "../UI/UserPane";
 import MainWrapper from "../UI/Wrappers/MainWrapper";
 import ShowStories from "./ShowStories";
+import "./BrowseContent.css";
 
 // Main container where stories are shown
 const BrowseContent = (props) => {
@@ -49,10 +50,18 @@ const BrowseContent = (props) => {
         logOutUser={props.logOutUser}
       />
       <MainWrapper>
-        <h2>Read their stories</h2>
-        <p>Choose a country and/or a city to start browsing their stories.</p>
-        <CountryCitySelector handleSearchLocale={handleSearchLocale} />
-        <ShowStories results={results} />
+        <section>
+          <div className="content-header-container">
+            <h2 className="section-header">Read their stories</h2>
+            <p>
+              Choose a country and/or a city to start browsing their stories.
+            </p>
+          </div>
+          <div className="story-selector-container">
+            <CountryCitySelector handleSearchLocale={handleSearchLocale} />
+            <ShowStories results={results} />
+          </div>
+        </section>
       </MainWrapper>
     </>
   );

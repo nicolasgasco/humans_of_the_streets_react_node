@@ -41,6 +41,22 @@ button {
 	outline: inherit;
 }
 
+.section-header:before {
+  content: ' ';
+  display: block;
+  width: 75px;
+  height: 10px;
+  background: #606664;
+  margin: 0 0 10px;
+}
+
+.section-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
 @media only screen and (min-width: 600px) {
   body {
     margin-bottom: 0;
