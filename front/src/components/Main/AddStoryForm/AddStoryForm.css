@@ -16,7 +16,7 @@
 
 .addstory-container {
   border: 4px #606664 dotted;
-
+  border-radius: 20px;
   padding: 1rem 1.5rem;
 }
 

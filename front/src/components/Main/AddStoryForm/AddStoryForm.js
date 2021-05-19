@@ -59,7 +59,7 @@ const AddStoryForm = (props) => {
         share_contact: story.share_contact,
       },
       img: story.img.trim(),
-      submittedBy: sessionStorage.getItem("user")
+      submittedBy: sessionStorage.getItem("user"),
     };
 
     fetch("/api/humans/new", {
@@ -107,7 +107,7 @@ const AddStoryForm = (props) => {
 
   return (
     <section>
-      <h2>Add a new story</h2>
+      <h2 className="section-header">Add a new story</h2>
       <div className="addstory-container">
         <h3>Interviewee info:</h3>
         <form className="addstory-form" onSubmit={submitStory}>
@@ -364,7 +364,7 @@ const AddStoryForm = (props) => {
           />
         </form>
       </div>
-    </ section>
+    </section>
   );
 };
 
