@@ -11,11 +11,13 @@ const ShowPersonalData = () => {
       .then((res) => res.json())
       .then((result) => {
         setPersonalData({ user: result.results });
+        setOldPersonalData(result.results)
       })
       .catch(function (error) {
         console.log("An error occurred: " + error.message);
       });
   });
+  const [oldPersonalData, setOldPersonalData] = useState();
   const [formDisabled, setFormDisabled] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showPasswordEdit, setShowPasswordEdit] = useState(false);
@@ -49,7 +51,7 @@ const ShowPersonalData = () => {
   const handleNewPasswordObj = (e, key) => {
     setNewPasswordObj((prevState) => {
       const newPasswordObj = Object.assign(prevState.newPasswordObj);
-      newPasswordObj[key] = e.target.value.trim();
+      newPasswordObj[key] = e.target.value;
       return { newPasswordObj };
     });
   };
@@ -105,8 +107,6 @@ const ShowPersonalData = () => {
           })
             .then((res) => res.json())
             .then((result) => {
-							console.log(result);
-							console.log(result)
               if (result.nModified === 1) {
                 setShowModal(true);
                 setModalText("Personal details changed successfully!");
@@ -135,6 +135,12 @@ const ShowPersonalData = () => {
   };
 
   const confirmEdits = () => {
+    if (oldPersonalData.name === personalData.user.name && oldPersonalData.surname === personalData.user.surname) {
+      console.log("triggered")
+      setShowModal(true);
+      setModalText("Please change your data!");
+      return;
+    }
     fetch("/api/users/update/data", {
       headers: {
         "Content-Type": "application/json",
@@ -149,7 +155,6 @@ const ShowPersonalData = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.results.modifiedCount === 1) {
           setShowModal(true);
           setModalText("Personal details changed successfully!");
@@ -193,12 +198,13 @@ const ShowPersonalData = () => {
   );
 
   const editPasswordContent = (
-    <form onSubmit={handleChangePassword}>
+    <form onSubmit={handleChangePassword} className={classes["profile-forms"]}>
       <div>
         <label htmlFor="old-password">Current password: </label>
         <input
           type="password"
           id="old-password"
+          autoComplete="current-password"
           value={newPasswordObj.newPasswordObj.currentPassword || ""}
           onChange={(e) => handleNewPasswordObj(e, "currentPassword")}
         />
@@ -209,6 +215,7 @@ const ShowPersonalData = () => {
         <input
           type="password"
           id="new-password"
+          autoComplete="new-password"
           value={newPasswordObj.newPasswordObj.newPassword || ""}
           onChange={(e) => handleNewPasswordObj(e, "newPassword")}
         />
@@ -218,6 +225,7 @@ const ShowPersonalData = () => {
         <input
           type="password"
           id="confirm-new-password"
+          autoComplete="new-password"
           value={newPasswordObj.newPasswordObj.confirmPassword || ""}
           onChange={(e) => handleNewPasswordObj(e, "confirmPassword")}
         />
@@ -230,13 +238,14 @@ const ShowPersonalData = () => {
   );
 
   const editDataContent = (
-    <form onSubmit={handleFormSubmit}>
+    <form onSubmit={handleFormSubmit} className={classes["profile-forms"]}>
       <div>
         <label htmlFor="name">Name: </label>
         <input
           type="text"
           id="name"
           placeholder={personalData ? personalData.user.name : "Your name"}
+          autoComplete="given-name"
           value={personalData ? personalData.user.name : ""}
           onChange={handleName}
           disabled={formDisabled}
@@ -248,6 +257,7 @@ const ShowPersonalData = () => {
           type="text"
           id="surname"
           placeholder={personalData ? personalData.user.surname : "Your name"}
+          autoComplete="family-name"
           value={personalData ? personalData.user.surname : ""}
           onChange={handleSurname}
           disabled={formDisabled}

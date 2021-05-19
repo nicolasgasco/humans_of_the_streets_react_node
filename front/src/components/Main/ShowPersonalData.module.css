@@ -1,10 +1,19 @@
 .personal-data-container {
-    border: 3px #606664 solid;
-    border-bottom: 5px #606664 solid;
+    border: 3px black solid;
+    border-bottom: 5px black solid;
     margin: 1rem;
     padding: 1rem 1.5rem;
 }
 
 .show-data-button {
     margin-right: 1rem;
+}
+
+.profile-forms label {
+    margin-right: 0.5rem;
+}
+
+.profile-forms input {
+    border: 0;
+    border-bottom: 4px black solid;
 }
