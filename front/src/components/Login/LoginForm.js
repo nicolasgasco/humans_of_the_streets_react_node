@@ -1,7 +1,6 @@
 import "./LoginForm.css";
 import WhiteButton from "../UI/WhiteButton";
 import { useState } from "react";
-import { Redirect } from "react-router";
 
 const LoginForm = (props) => {
   const [user, setUser] = useState({ email: "", password: "" });

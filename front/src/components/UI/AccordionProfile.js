@@ -1,7 +1,5 @@
-import { useState } from "react";
 import Accordion from "react-bootstrap/Accordion";
 import Card from "react-bootstrap/Card";
-import ShowPersonalData from "../Main/ShowPersonalData";
 import classes from "./AccordionProfile.module.css";
 
 const AccordionProfile = (props) => {

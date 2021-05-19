@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Card from "react-bootstrap/esm/Card";
 import DarkButton from "../../UI/DarkButton";
 import WhiteButton from "../../UI/WhiteButton";
 import ColoredWrapper from "../../UI/Wrappers/ColoredWrapper";

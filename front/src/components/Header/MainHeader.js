@@ -1,7 +1,6 @@
 import MainNav from "./MainNav";
 import "./MainHeader.css";
 import AnimatedLogo from "./AnimatedLogo";
-import UserIcon from "../UI/UserIcon";
 import { useEffect } from "react";
 
 // Big header for homepage

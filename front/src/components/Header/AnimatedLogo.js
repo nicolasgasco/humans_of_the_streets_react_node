@@ -12,6 +12,8 @@ const AnimatedLogo = () => {
       case -90:
         window.location.reload();
         break;
+      default:
+        return;
     }
   };
 

@@ -1,8 +1,5 @@
 import "./HomeContent.css";
-import ColoredWrapper from "../UI/Wrappers/ColoredWrapper";
 import MainWrapper from "../UI/Wrappers/MainWrapper";
-import StandardButton from "../UI/StandardButton";
-import { Link } from "react-router-dom";
 import StoriesSlideshow from "../UI/StoriesSlideshow";
 import DarkButton from "../UI/DarkButton";
 

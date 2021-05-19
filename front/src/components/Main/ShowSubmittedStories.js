@@ -42,7 +42,6 @@ const ShowSubmittedStories = (props) => {
               id={story._id}
               handleStoryToDelete={props.handleStoryToDelete}
               handleModalMessage={props.handleModalMessage}
-              handleStoryToDelete={props.handleStoryToDelete}
             />
           }
         />

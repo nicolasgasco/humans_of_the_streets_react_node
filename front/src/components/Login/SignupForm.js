@@ -1,5 +1,5 @@
 import "./SignupForm.css";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import WhiteButton from "../UI/WhiteButton";
 
 const SignupForm = (props) => {

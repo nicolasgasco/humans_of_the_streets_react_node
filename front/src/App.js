@@ -9,7 +9,6 @@ import AddContent from "./components/Main/AddContent";
 import BrowseContent from "./components/Main/BrowseContent";
 import HomeContent from "./components/Main/HomeContent";
 import ProfileContent from "./components/Main/ProfileContent";
-import UserIcon from "./components/UI/UserIcon";
 import UserMessage from "./components/UI/UserMessage";
 
 const App = () => {
