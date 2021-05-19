@@ -6,7 +6,8 @@ import "./ShowStories.css";
 const ShowStories = ({ results }) => {
   const showResults = results.map((result) => {
     // Show only good results
-    if (result.approved !== false) {
+    // Need both because of an old design flaw
+    if (result.approved !== false && result.approved !== "false") {
       return <ShowSingleStory key={result._id} story={result} />;
     }
   });
