@@ -181,7 +181,6 @@ const AddStoryForm = (props) => {
               type="email"
               name="email"
               id="email"
-              required
               autoComplete="email"
               value={story.name}
               onChange={(e) => {
@@ -195,7 +194,6 @@ const AddStoryForm = (props) => {
               type="tel"
               name="telephone"
               id="telephone"
-              required
               autoComplete="tel"
               value={story.telephone_number}
               onChange={(e) => {
@@ -266,7 +264,6 @@ const AddStoryForm = (props) => {
             <textarea
               name="spot"
               id="spot"
-              required
               value={story.spot}
               onChange={(e) => {
                 handleStory(e.target.value, "spot");
@@ -321,7 +318,6 @@ const AddStoryForm = (props) => {
               name="img"
               id="img"
               rows="2"
-              required
               autoComplete="photo"
               value={story.img}
               onChange={(e) => {
