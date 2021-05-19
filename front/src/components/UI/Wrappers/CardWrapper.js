@@ -1,10 +1,8 @@
-import "./CardWrapper.css";
+import classes from "./CardWrapper.module.css";
 
 // Wrapper to format cards
 const CardWrapper = (props) => {
-  const classes = "grid-item " + props.className;
-
-  return <div className={classes}>{props.children}</div>;
+  return <div className={`${classes["grid-item"]} ${props.className}`}>{props.children}</div>;
 };
 
 export default CardWrapper;
