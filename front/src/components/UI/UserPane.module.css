@@ -4,8 +4,9 @@
   width: 100%;
 
   padding: 1rem 1.5rem;
+  -webkit-box-shadow: 0px 15px 15px -5px rgba(165, 165, 165, 0.507);
 
-  border-bottom: 10px black;
+  box-shadow: 0px 15px 15px -5px rgba(165, 165, 165, 0.507);
 }
 
 .user-pane ul {
