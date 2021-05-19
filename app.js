@@ -101,6 +101,16 @@ passport.deserializeUser(function (email, done) {
     });
 });
 
+// Redirect all requests to index.html
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, "./build/index.hmtl"), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
+
 // Route to check if user is logged
 app.get("/api/login/check", (req, res) => {
   if (req.session.passport) {
