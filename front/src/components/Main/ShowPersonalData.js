@@ -57,12 +57,6 @@ const ShowPersonalData = () => {
   };
 
   const confirmPasswordEdit = () => {
-    // Password validation
-    console.log(
-      personalData.user.email,
-      newPasswordObj.newPasswordObj.currentPassword
-    );
-
     // Check old password
     fetch("/api/login", {
       headers: {
@@ -136,7 +130,6 @@ const ShowPersonalData = () => {
 
   const confirmEdits = () => {
     if (oldPersonalData.name === personalData.user.name && oldPersonalData.surname === personalData.user.surname) {
-      console.log("triggered")
       setShowModal(true);
       setModalText("Please change your data!");
       return;

@@ -14,8 +14,9 @@ const SignupForm = (props) => {
     e.preventDefault();
     e.target.checkValidity();
 
-    console.log(nameInputRef.current.value)
-    if (passwordInputRef.current.value !== confirmPasswordInputRef.current.value) {
+    if (
+      passwordInputRef.current.value !== confirmPasswordInputRef.current.value
+    ) {
       props.handleModalMessage("The two passwords don't match!");
       passwordInputRef.current.value = "";
       confirmPasswordInputRef.current.value = "";
@@ -43,12 +44,12 @@ const SignupForm = (props) => {
             passwordInputRef.current.value = "";
             confirmPasswordInputRef.current.value = "";
           } else {
-            props.handleModalMessage("The user is already registered!");          
+            props.handleModalMessage("The user is already registered!");
           }
         })
         .catch(function (error) {
           console.log("An error occurred: " + error.message);
-          props.handleModalMessage("Ops! Something went wrong :(");          
+          props.handleModalMessage("Ops! Something went wrong :(");
         });
     }
   };
@@ -79,7 +80,6 @@ const SignupForm = (props) => {
               required
               autoComplete="family-name"
               ref={surnameInputRef}
-
             />
           </div>
         </div>

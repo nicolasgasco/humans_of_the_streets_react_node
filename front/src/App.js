@@ -17,7 +17,6 @@ const App = () => {
     fetch("/api/login/check")
       .then((res) => res.json())
       .then((result) => {
-        console.log("Session is ", result.isLogged);
         setSession(result.isLogged);
         fetch("/api/users/email", {
           headers: {
@@ -125,7 +124,7 @@ const App = () => {
       .catch(function (error) {
         console.log("An error occurred: " + error.message);
       });
-  }
+  };
 
   return (
     <BrowserRouter>
@@ -147,8 +146,12 @@ const App = () => {
               handleModalMessage={handleModalMessage}
             />
           ) : null}
-          {showSignup ? <SignupForm handleModalMessage={handleModalMessage} /> : null}
-          <HomeContent toggleSignupFormVisibility={toggleSignupFormVisibility} />
+          {showSignup ? (
+            <SignupForm handleModalMessage={handleModalMessage} />
+          ) : null}
+          <HomeContent
+            toggleSignupFormVisibility={toggleSignupFormVisibility}
+          />
         </Route>
 
         <Route exact path="/browse">

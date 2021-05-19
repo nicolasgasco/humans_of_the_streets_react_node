@@ -25,7 +25,6 @@ const ShowSubmittedStories = (props) => {
       const newFilteredStories = filteredStories.filter((story) => {
         return story._id !== props.storyToDelete.storyToDelete.id;
       });
-      console.log(newFilteredStories);
       setFilteredStories(newFilteredStories);
     }
   }, [props.storyToDelete.storyToDelete.delete]);
