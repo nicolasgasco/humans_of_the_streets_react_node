@@ -27,7 +27,7 @@ const ShowSubmittedStories = (props) => {
       });
       setFilteredStories(newFilteredStories);
     }
-  }, [props.storyToDelete.storyToDelete.delete]);
+  }, [props.storyToDelete.storyToDelete.delete, filteredStories, props.storyToDelete.storyToDelete.id]);
 
   let showFilteredStories;
   if (filteredStories) {

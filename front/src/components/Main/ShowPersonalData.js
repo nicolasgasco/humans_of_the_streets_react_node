@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classes from "./ShowPersonalData.module.css";
 import DarkButton from "../UI/DarkButton";
 import UserMessage from "../UI/UserMessage";
