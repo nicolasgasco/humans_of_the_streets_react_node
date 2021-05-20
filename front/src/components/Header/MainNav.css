@@ -11,6 +11,9 @@
 
   height: 10vh;
 
+  /* This is needed because sometimes the header animation spills over the main nav */
+  z-index: 9999;
+
   display: -webkit-box;
 
   display: -ms-flexbox;
