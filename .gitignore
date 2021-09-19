@@ -1,3 +1,5 @@
 /node_modules
 .env
 package-lock.json
+build/ 
+# Remove build if pushing something to Heroku
