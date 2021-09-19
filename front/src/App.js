@@ -11,6 +11,8 @@ import HomeContent from "./components/Main/HomeContent";
 import ProfileContent from "./components/Main/ProfileContent";
 import UserMessage from "./components/UI/UserMessage";
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 const App = () => {
   const [session, setSession] = useState(() => {
     // One fetch to check if the user is logged, another fetch to get the ID

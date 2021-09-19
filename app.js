@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const path = require('path');
+const path = require("path");
 
 // Import routes
 const humans = require("./routes/humans");
@@ -101,7 +101,6 @@ passport.deserializeUser(function (email, done) {
     });
 });
 
-
 // Route to check if user is logged
 app.get("/api/login/check", (req, res) => {
   if (req.session.passport) {
@@ -182,13 +181,13 @@ app.put("/api/logout", (req, res) => {
 });
 
 // Redirect all requests to index.html
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, "./build/index.html"), function(err) {
+app.get("/*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./build/index.html"), function (err) {
     if (err) {
-      res.status(500).send(err)
+      res.status(500).send(err);
     }
-  })
-})
+  });
+});
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

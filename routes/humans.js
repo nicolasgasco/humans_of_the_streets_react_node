@@ -181,7 +181,7 @@ router.put("/:id", (req, res) => {
         from: newObject.from,
         currently_in: newObject.currently_in,
         interview: newObject.interview,
-        "contact:": newObject.contact,
+        contact: newObject.contact,
         approved: newObject.approved,
         data_modified: newObject.data_modified,
       },
